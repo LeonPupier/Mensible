@@ -26,4 +26,6 @@ v1.0.0 [MAJOR]
 - 32 and 64 bits supported
 
 ## Credits
+__Python libraries used:__ os, tkinter, threading, pytube
+
 Léon Pupier - 2022
