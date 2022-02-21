@@ -4,6 +4,7 @@ Software to download videos and music from a YouTube URL for free in .mp4 format
 Possibility to download only the audio of a video or its whole.
 
 Includes a playlist mode that allows you to download all the videos in a public YouTube playlist at once.
+
 The interface has been designed to be simple and to be used by everyone.
 
 Autonomous update function thanks to the GitHub folder.
