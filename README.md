@@ -31,6 +31,6 @@ v1.0.0 [MAJOR]
   - The "Download in progress..." button may in rare cases not reactivate at the end of a download
 
 ## Credits
-__Python libraries used:__ os, tkinter, threading, pytube
+__Python libraries used:__ os, tkinter, threading, pytube, webbrowser
 
 Léon Pupier - 2022
