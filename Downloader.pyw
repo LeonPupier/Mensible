@@ -1,4 +1,4 @@
-import os
+import os, webbrowser
 from tkinter import *
 from tkinter import filedialog, messagebox, Text
 from tkinter.ttk import Progressbar, Scrollbar
@@ -49,6 +49,28 @@ def progress_func(stream, chunk, bytes_remaining):
 
 
 def download_file(yt, mode):
+	# File path
+	if mode == 'audio':
+		file_path = f'C:/Users/{os.getlogin()}/Music/{yt.title} [AUDIO].mp4'
+	else:
+		file_path = f'C:/Users/{os.getlogin()}/Music/{yt.title} [AUDIO+VIDEO].mp4'
+
+	# Check if the file already exists
+	try:
+		with open(file_path, 'r'):
+			if download_type == 'single':
+				status.set("The file already exists on your computer...")
+				txt_btn.set("Download")
+				btn_search.configure(state="normal")
+
+				global list_file
+				liste_file = []
+
+			return
+
+	except FileNotFoundError:
+		pass
+
 	# Stream
 	if mode == 'audio':
 		final_stream = yt.streams.get_audio_only()
@@ -62,22 +84,18 @@ def download_file(yt, mode):
 		sys.exit(0)
 
 	# File rename
-	try:
-		if mode == 'audio':
-			os.rename(downloaded_file, f'C:/Users/{os.getlogin()}/Music/{yt.title} [AUDIO].mp4')
-		else:
-			os.rename(downloaded_file, f'C:/Users/{os.getlogin()}/Music/{yt.title} [AUDIO+VIDEO].mp4')
-
-	except FileExistsError:
-		return
+	os.rename(downloaded_file, file_path)
 
 
 def cancel_download():
 	pass
 
 
-def search_video():
+def search_video(bind_action=None):
 	global liste_file, total_downloaded
+
+	progress['value'] = 0
+	percent.set("0%")
 
 	status.set("")
 	txt_1.set("")
@@ -175,7 +193,7 @@ def playlist():
 
 
 def hyperlink(arg):
-	filename = filedialog.askopenfilename(initialdir=f"C:/Users/{os.getlogin()}/Music/", title="Browser")
+	webbrowser.open(f'C:/Users/{os.getlogin()}/Music/')
 
 
 def check_update():
@@ -204,9 +222,11 @@ v1.2.0 [MAJOR]
 - Link to the windows file explorer for the music folder
 - Internet update system in stand-alone version
 - [Fixing] End of download not detected
+- [Fixing] Various minor patches
 
 v1.1.0 [MAJOR]
 - Playlist download supported
+- [Fixing] Various minor patches
 
 v1.0.0 [MAJOR]
 - Download a file from YouTube
@@ -263,6 +283,7 @@ Label(window, textvariable=label_url, font=bold_font).pack()
 txt_url = Entry(window, width=50, justify='center')
 txt_url.insert(END, 'https://www.youtube.com/watch?v=')
 txt_url.pack()
+window.bind('<Return>', search_video)
 
 # Download mode choice
 mode_download = 'video'
@@ -319,37 +340,19 @@ lbl_link.bind("<Button-1>", hyperlink)
 # Loop
 liste_file = []
 def loop_method():
-	global liste_file
+	if progress['value'] == 100:
+		status.set("Operation successfully completed.")
 
-	try:
-		len_file = len(liste_file)
-		nb_file = 0
+		if download_type == 'single':
+			txt_1.set("Your file is in the Music folder")
+		else:
+			txt_1.set("Your files are in the Music folder")
 
-		for file in liste_file:
-			if mode_download == 'audio':
-				file_path = f'C:/Users/{os.getlogin()}/Music/{file} [AUDIO].mp4'
-			else:
-				file_path = f'C:/Users/{os.getlogin()}/Music/{file} [AUDIO+VIDEO].mp4'
+		txt_2.set(f"located at the address: {f'C:/Users/{os.getlogin()}/Music'}")
 
-			with open(file_path):
-				nb_file += 1
-
-		if nb_file == len_file and liste_file != []:
-			status.set("Operation successfully completed.")
-
-			if download_type == 'single':
-				txt_1.set("Your file is in the Music folder")
-			else:
-				txt_1.set("Your files are in the Music folder")
-
-			txt_2.set(f"located at the address: {f'C:/Users/{os.getlogin()}/Music'}")
-
-			txt_btn.set("Download")
-			btn_search.configure(state="normal")
-			liste_file = []
-
-	except FileNotFoundError:
-		pass
+		txt_btn.set("Download")
+		btn_search.configure(state="normal")
+		liste_file = []
 
 	window.after(1000, loop_method)
 
