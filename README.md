@@ -26,7 +26,7 @@ v1.0.0 [MAJOR]
 - Build of the application for Windows 7 system and after
 - 32 and 64 bits supported
 
-## Known issues
+# Known issues
   - Some video URLs are not recognized which causes a crash when initializing the YouTube object
   - The "Download in progress..." button may in rare cases not reactivate at the end of a download
 
