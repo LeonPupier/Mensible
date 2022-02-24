@@ -33,4 +33,8 @@ v1.0.0 [MAJOR]
 ## Credits
 __Python libraries used:__ os, tkinter, threading, pytube, webbrowser
 
+**Icons used:**
+
+https://www.flaticon.com/fr/icones-gratuites/ecouteurs by Andrean Prabowo.
+
 Léon Pupier - 2022
