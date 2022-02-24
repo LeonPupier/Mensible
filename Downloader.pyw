@@ -2,6 +2,7 @@ import os, webbrowser
 from tkinter import *
 from tkinter import filedialog, messagebox, Text
 from tkinter.ttk import Progressbar, Scrollbar
+from PIL import Image, ImageTk
 import tkinter.font as tkFont
 from threading import *
 from pytube import *
@@ -28,7 +29,9 @@ def center_window(win):
 	win_height = height + titlebar_height + frm_width
 	x = win.winfo_screenwidth() // 2 - win_width // 2
 	y = win.winfo_screenheight() // 2 - win_height // 2
+
 	win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+	win.iconbitmap('app.ico')
 	win.deiconify()
 
 
@@ -163,15 +166,19 @@ def search_video(bind_action=None):
 def audio_only():
 	global mode_download
 	mode_download = 'audio'
-	btn_audio.configure(state="disabled", cursor='arrow')
-	btn_video.configure(state="normal", cursor='hand2')
+	#btn_audio.configure(state="disabled", cursor='arrow')
+	#btn_video.configure(state="normal", cursor='hand2')
+	btn_audio.configure(bg="#4478E3", cursor='arrow')
+	btn_video.configure(bg="#F0F0ED", cursor='hand2')
 
 
 def audio_video():
 	global mode_download
 	mode_download = 'video'
-	btn_video.configure(state="disabled", cursor='arrow')
-	btn_audio.configure(state="normal", cursor='hand2')
+	#btn_video.configure(state="disabled", cursor='arrow')
+	#btn_audio.configure(state="normal", cursor='hand2')
+	btn_video.configure(bg="#4478E3", cursor='arrow')
+	btn_audio.configure(bg="#F0F0ED", cursor='hand2')
 
 
 def single():
@@ -220,7 +227,7 @@ def changelog():
 # Initialisation
 window = Tk()
 window.title('YouTube Downloader v1.2.1 [DEV]')
-window.geometry("500x550")
+window.geometry("900x700")
 window.resizable(False, False)
 center_window(window)
 
@@ -255,29 +262,31 @@ Label(window, text="Uploaded videos will not exceed 720p resolution", fg="grey")
 Label(window, text="due to a blocking by Google LLC.", fg="grey").pack()
 Label(window).pack()
 
+c1 = Frame(window)
+c1.pack()
+
 label_url = StringVar()
-label_url.set("URL of the desired single music/video:")
-Label(window, textvariable=label_url, font=bold_font).pack()
-txt_url = Entry(window, width=50, justify='center')
+label_url.set("URL of the desired single music/video: ")
+Label(c1, textvariable=label_url, font=bold_font).pack(side=LEFT)
+txt_url = Entry(c1, width=50, justify='left')
 txt_url.insert(END, 'https://www.youtube.com/watch?v=')
-txt_url.pack()
+txt_url.pack(side=LEFT)
 window.bind('<Return>', search_video)
 
 # Download mode choice
 mode_download = 'video'
-cadre = Frame(window)
-cadre.pack()
-btn_audio = Button(cadre, text="Audio", state='normal', command=audio_only, cursor='hand2')
-btn_video = Button(cadre, text="Audio+Video", state='disabled', command=audio_video, cursor='arrow')
+image_audio = ImageTk.PhotoImage(Image.open('Content/audio.png'))
+btn_audio = Button(c1, state='normal', command=audio_only, cursor='hand2', image=image_audio)
+image_video = ImageTk.PhotoImage(Image.open('Content/video.png'))
+btn_video = Button(c1, state='normal', command=audio_video, cursor='arrow', image=image_video)
 btn_audio.pack(padx=5, pady=5, side=LEFT)
-btn_video.pack(padx=5, pady=5)
-Label(window).pack()
+btn_video.pack(padx=5, pady=5, side=LEFT)
 
 
 txt_btn = StringVar()
 txt_btn.set("Download")
-btn_search = Button(window, textvariable=txt_btn, state='normal', command=search_video, cursor='hand2')
-btn_search.pack()
+btn_search = Button(c1, textvariable=txt_btn, state='normal', command=search_video, cursor='hand2')
+btn_search.pack(padx=5, pady=5, side=LEFT)
 Label(window).pack()
 
 # Progress
