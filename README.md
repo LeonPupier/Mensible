@@ -33,8 +33,9 @@ v1.0.0 [MAJOR]
 ## Credits
 __Python libraries used:__ os, tkinter, threading, pytube, webbrowser
 
-**Icons used:**
+**Images used:**
 
+- https://www.flaticon.com/premium-icon/download_1950083
 - https://www.flaticon.com/premium-icon/headphone_3756810
 - https://www.flaticon.com/premium-icon/video-and-audio_5392860
 - https://www.flaticon.com/premium-icon/update_5134875
