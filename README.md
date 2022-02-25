@@ -35,8 +35,8 @@ __Python libraries used:__ os, tkinter, threading, pytube, webbrowser
 
 **Icons used:**
 
-https://www.flaticon.com/fr/icone-premium/casque-de-musique_3756810
-https://www.flaticon.com/fr/icone-premium/video-et-audio_5392860
-https://www.flaticon.com/premium-icon/update_5134875
+- https://www.flaticon.com/fr/icone-premium/casque-de-musique_3756810
+- https://www.flaticon.com/fr/icone-premium/video-et-audio_5392860
+- https://www.flaticon.com/premium-icon/update_5134875
 
 Léon Pupier - 2022
