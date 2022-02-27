@@ -1,10 +1,18 @@
 def changelog_txt():
 	return '''CHANGELOG - 2022\n
 [KNOWN ISSUES]
-- Some video URLs are not recognized which causes an error when initializing the YouTube object
+- No known problems
+
+v1.3.0 [MAJOR]
+- New software interface
+- Displaying the video thumbnail
+- Displaying the title, date, views, owner and description
+- Setting up an installer
+- [Info] Support for the portable version stopped
+- [Fixing] Some URLs are not recognized
+- [Fixing] Various minor patches
 
 v1.2.1 [MINOR]
-- Added a button to cancel a download in progress
 - Change of icon for the application
 - [Fixing] The Download button may not reactivate
 - [Fixing] Various minor patches
