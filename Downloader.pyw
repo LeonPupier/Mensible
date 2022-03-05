@@ -35,6 +35,7 @@ list_p_obj = []
 list_video_dl_p = []
 
 list_yt_obj = []
+list_frame_queue = []
 list_frame_info = []
 list_thumbnail = []
 list_percent = []
@@ -95,7 +96,7 @@ def download_thumbnail(url_image, title_image):
 
 
 def download_info(yt_obj):
-	global list_yt_obj, list_p_obj, list_thumbnail, list_frame_info, list_percent, list_progress, list_btn_pause, list_btn_is_pause
+	global list_yt_obj, list_p_obj, list_thumbnail, list_frame_queue, list_frame_info, list_percent, list_progress, list_btn_pause, list_btn_is_pause
 
 	download_type_now = download_type
 
@@ -109,6 +110,7 @@ def download_info(yt_obj):
 	color_queue_line = color_frame_download
 	queue_line = Frame(queue, bg=color_queue_line)
 	queue_line.grid(row=nb_video, column=0, sticky='sw')
+	list_frame_queue.append(queue_line)
 
 	# Thumbnail
 	if download_type_now == 'single':
@@ -299,6 +301,13 @@ def search_video(bind_action=None):
 			current_queue += 1
 			queue.configure(text=f"Download queue {current_queue}/4")
 
+			# Entry
+			txt_url.delete(0, END)
+			if download_type == 'single':
+				txt_url.insert(0, 'https://www.youtube.com/watch?v=')
+			else:
+				txt_url.insert(0, 'https://www.youtube.com/playlist?list=')
+
 			# Download
 			thread_download = Thread(target=download_video, args=(url, download_type,))
 			thread_download.start()
@@ -389,10 +398,17 @@ def pause(idx_btn):
 		list_btn_is_pause[idx_btn] = True
 
 def cancel(idx_btn):
+	global current_queue
+
 	list_btn_is_cancel[idx_btn] = True
 	list_btn_pause[idx_btn].configure(state='disabled')
 	list_btn_pause[idx_btn].configure(state='disabled')
 	list_percent[idx_btn].set('Download cancel.')
+	list_frame_info[idx_btn].pack_forget()
+	list_frame_queue[idx_btn].grid_forget()
+
+	current_queue -= 1
+	queue.configure(text=f"Download queue {current_queue}/4")
 
 
 def hyperlink(arg):
