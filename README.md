@@ -10,8 +10,7 @@ The interface has been designed to be simple and to be used by everyone.
 Autonomous update function thanks to the GitHub folder.
 
 # Overview
-![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Content/img1.png?raw=true)
-![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Content/img2.png?raw=true)
+![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Content/img1.png?raw=true) ![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Content/img2.png?raw=true)
 
 # Changelog
 v1.3.0 [MAJOR]
