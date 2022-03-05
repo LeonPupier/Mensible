@@ -10,15 +10,35 @@ The interface has been designed to be simple and to be used by everyone.
 Autonomous update function thanks to the GitHub folder.
 
 # Changelog
+v1.3.0 [MAJOR]
+- New software interface
+- Displaying the video thumbnail
+- Displaying the title, date, views, owner and description
+- Setting up an installer
+- Ability to pause and stop a download
+- Queue of 4 videos at the same time
+- [Info] Support for the portable version stopped
+- [Fixing] Some URLs are not recognized
+- [Fixing] Threading works perfectly
+- [Fixing] Performance optimization/memory leak correction
+- [Fixing] Various major and minor patches
+
+v1.2.1 [MINOR]
+- Change of icon for the application
+- [Fixing] The Download button may not reactivate
+- [Fixing] Various minor patches
+
 v1.2.0 [MAJOR]
 - Changelog
 - Dynamic progress bar during download
 - Link to the windows file explorer for the music folder
 - Internet update system in stand-alone version
 - [Fixing] End of download not detected
+- [Fixing] Various minor patches
 
 v1.1.0 [MAJOR]
 - Playlist download supported
+- [Fixing] Various minor patches
 
 v1.0.0 [MAJOR]
 - Download a file from YouTube
@@ -27,11 +47,10 @@ v1.0.0 [MAJOR]
 - 32 and 64 bits supported
 
 # Known issues
-  - Some video URLs are not recognized which causes a crash when initializing the YouTube object
-  - The "Download in progress..." button may in rare cases not reactivate at the end of a download
+  - The update function is not working yet.
 
 ## Credits
-__Python libraries used:__ os, tkinter, threading, pytube, webbrowser
+__Python libraries used:__ os, tkinter, threading, pytube, webbrowser, requests, shutil, re, PIL, ctypes
 
 **Images used:**
 
