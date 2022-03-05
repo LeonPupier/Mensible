@@ -22,7 +22,7 @@ ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
 # Environment
 try:
-	os.mkdir('Thumbnail')
+	os.mkdir(f'C:/Users/{os.getlogin()}/Thumbnail')
 except FileExistsError:
 	pass
 
@@ -91,7 +91,7 @@ def download_thumbnail(url_image, title_image):
 	r.raw.decode_content = True
 
 	# Write the thumbnail into the directory
-	with open(f'Thumbnail/{title_image}.jpg', 'wb') as f:
+	with open(f'C:/Users/{os.getlogin()}/Thumbnail/{title_image}.jpg', 'wb') as f:
 		shutil.copyfileobj(r.raw, f)
 
 
@@ -114,7 +114,7 @@ def download_info(yt_obj):
 
 	# Thumbnail
 	if download_type_now == 'single':
-		photo_thumbnail = Image.open(f'Thumbnail/{yt_obj.title}.jpg')
+		photo_thumbnail = Image.open(f'C:/Users/{os.getlogin()}/Thumbnail/{yt_obj.title}.jpg')
 	else:
 		photo_thumbnail = Image.open(f'Content/logo.jpg')
 
@@ -417,6 +417,7 @@ def hyperlink(arg):
 
 def check_update():
 	#messagebox.askquestion(title="Update", message="A new version of the software is available ! Do you want to update it now ?")
+	messagebox.showinfo(title="Update", message="The update function is not working yet. Please update if available to: https://github.com/LeonPupier/YouTube-Downloader")
 	messagebox.showinfo(title="Update", message="You already have the most recent version of the software.")
 
 
@@ -424,7 +425,7 @@ def on_closing():
 	global list_btn_is_cancel
 
 	try:
-		shutil.rmtree('Thumbnail')
+		shutil.rmtree(f'C:/Users/{os.getlogin()}/Thumbnail')
 	except FileNotFoundError:
 		pass
 

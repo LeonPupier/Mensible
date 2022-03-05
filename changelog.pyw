@@ -1,16 +1,20 @@
 def changelog_txt():
 	return '''CHANGELOG - 2022\n
 [KNOWN ISSUES]
-- No known problems
+- The update function is not working yet.
 
 v1.3.0 [MAJOR]
 - New software interface
 - Displaying the video thumbnail
 - Displaying the title, date, views, owner and description
 - Setting up an installer
+- Ability to pause and stop a download
+- Queue of 4 videos at the same time
 - [Info] Support for the portable version stopped
 - [Fixing] Some URLs are not recognized
-- [Fixing] Various minor patches
+- [Fixing] Threading works perfectly
+- [Fixing] Performance optimization/memory leak correction
+- [Fixing] Various major and minor patches
 
 v1.2.1 [MINOR]
 - Change of icon for the application
