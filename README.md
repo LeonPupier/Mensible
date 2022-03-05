@@ -12,7 +12,6 @@ Autonomous update function thanks to the GitHub folder.
 # Overview
 ![alt text](https://github.com/LeonPupier/YouTube-Downloader/Images/img1.jpg?raw=true)
 ![alt text](https://github.com/LeonPupier/YouTube-Downloader/Images/img2.jpg?raw=true)
-![alt text](https://github.com/LeonPupier/YouTube-Downloader/Images/img3.jpg?raw=true)
 
 # Changelog
 v1.3.0 [MAJOR]
