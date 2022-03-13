@@ -62,8 +62,8 @@ __Python libraries used:__ os, tkinter, threading, pytube, webbrowser, requests,
 - https://www.flaticon.com/premium-icon/video-and-audio_5392860
 - https://www.flaticon.com/premium-icon/reports_3568717
 - https://www.flaticon.com/free-icon/box_1376786
-- https://www.flaticon.com/free-icon/multiply_399274
 - https://www.flaticon.com/free-icon/pause_189639
 - https://www.flaticon.com/premium-icon/checked_1710008
+- https://www.flaticon.com/premium-icon/cancel_2550327
 
 Léon Pupier - 2022
