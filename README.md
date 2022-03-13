@@ -62,6 +62,7 @@ __Python libraries used:__ os, tkinter, threading, pytube, webbrowser, requests,
 - https://www.flaticon.com/premium-icon/video-and-audio_5392860
 - https://www.flaticon.com/premium-icon/reports_3568717
 - https://www.flaticon.com/free-icon/box_1376786
+- https://www.flaticon.com/premium-icon/play_5993570
 - https://www.flaticon.com/free-icon/pause_189639
 - https://www.flaticon.com/premium-icon/accept_2550322
 - https://www.flaticon.com/premium-icon/cancel_2550327
