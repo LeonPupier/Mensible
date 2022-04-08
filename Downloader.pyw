@@ -67,7 +67,7 @@ def center_window(win, ico_name='app'):
 	y = win.winfo_screenheight() // 2 - win_height // 2
 
 	win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-	win.iconbitmap(f'Content/{ico_name}.ico')
+	win.iconbitmap(f'Content/Images/{ico_name}.ico')
 	win.configure(bg=color_theme)
 	win.deiconify()
 
@@ -116,7 +116,7 @@ def download_info(yt_obj):
 	if download_type_now == 'single':
 		photo_thumbnail = Image.open(f'C:/Users/{os.getlogin()}/Thumbnail/{yt_obj.title}.jpg')
 	else:
-		photo_thumbnail = Image.open(f'Content/logo.jpg')
+		photo_thumbnail = Image.open(f'Content/Images/logo.jpg')
 
 	photo_thumbnail.thumbnail((120, 90), Image.BICUBIC)
 	img_thumbnail = ImageTk.PhotoImage(photo_thumbnail)
@@ -500,15 +500,17 @@ txt_url.insert(END, 'https://www.youtube.com/watch?v=')
 txt_url.pack(padx=5, pady=5, side=LEFT)
 window.bind('<Return>', search_video)
 
-# Download mode choice
-image_audio = ImageTk.PhotoImage(Image.open('Content/audio.png'))
-btn_audio = Button(c2, command=audio_only, bg=color_bg_widget, activebackground=color_blue, cursor='hand2', image=image_audio)
+# DOWNLOAD MODE CHOICE
+
+image_btn_audio = ImageTk.PhotoImage(Image.open('Content/Images/audio.png'))
+frame_audio_idx = 0
+btn_audio = Button(c2, command=audio_only, bg=color_bg_widget, fg=color_title, activebackground=color_blue, cursor='hand2', image=image_btn_audio)
 btn_audio.pack(padx=5, pady=5, side=LEFT)
 
-image_video = ImageTk.PhotoImage(Image.open('Content/video.png'))
-btn_video = Button(c2, command=audio_video, bg=color_bg_widget, activebackground=color_blue, cursor='hand2', image=image_video)
+image_btn_video = ImageTk.PhotoImage(Image.open('Content/Images/video.png'))
+frame_video_idx = 0
+btn_video = Button(c2, command=audio_video, bg=color_bg_widget, fg=color_title, activebackground=color_blue, cursor='hand2', image=image_btn_video)
 btn_video.pack(padx=5, pady=5, side=LEFT)
-
 
 txt_btn = StringVar()
 txt_btn.set("Download")
@@ -517,7 +519,7 @@ btn_search.pack(padx=5, pady=5, side=LEFT)
 space()
 
 # No queue
-img_void = ImageTk.PhotoImage(Image.open('Content/void.png'))
+img_void = ImageTk.PhotoImage(Image.open('Content/Images/void.png'))
 label_img_void = Label(window, image=img_void, bg=color_theme)
 label_img_void.pack()
 label_txt_void = Label(window, text="There are no downloads in progress...", bg=color_theme, font=void_font)
@@ -546,9 +548,9 @@ Label(window, text="This service does not respect the TOS and copyrights on YouT
 liste_file = []
 current_queue = 0
 
-image_pause = ImageTk.PhotoImage(Image.open('Content/pause.png'))
-image_resume = ImageTk.PhotoImage(Image.open('Content/play.png'))
-image_cancel = ImageTk.PhotoImage(Image.open('Content/cancel.png'))
+image_pause = ImageTk.PhotoImage(Image.open('Content/Images/pause.png'))
+image_resume = ImageTk.PhotoImage(Image.open('Content/Images/play.png'))
+image_cancel = ImageTk.PhotoImage(Image.open('Content/Images/cancel.png'))
 
 def loop_method():
 	window.after(1000, loop_method)
