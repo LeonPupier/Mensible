@@ -20,5 +20,5 @@ Autonomous update function thanks to the GitHub folder.
 # Changelog
 The changes file is available at this address: https://textup.fr/622032pL
 
-## Credits
+# Credits
 Léon Pupier - 2022
