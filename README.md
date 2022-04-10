@@ -13,9 +13,9 @@ The interface has been designed to be simple and to be used by everyone.
 Autonomous update function thanks to the GitHub folder.
 
 # Overview
-![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Content/img1.png?raw=true)
+![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Description/1.png?raw=true)
 
-![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Content/img2.png?raw=true)
+![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Description/2.png?raw=true)
 
 # Changelog
 The changes file is available at this address: https://textup.fr/622032pL
