@@ -1,4 +1,5 @@
-import os, webbrowser, requests, shutil, re
+# Dependencies
+import os, git, webbrowser, requests, shutil, re, ctypes, configparser, Pmw
 from tkinter import *
 from tkinter import filedialog, messagebox, Text
 from tkinter.ttk import Progressbar, Scrollbar
@@ -7,10 +8,6 @@ import tkinter.font as tkFont
 from threading import *
 from pytube import *
 import pytube.request
-import ctypes
-
-# Internal modules
-from changelog import *
 
 #Ddw9CVIn6Zg
 #XqcuHB2fN7U
@@ -20,6 +17,11 @@ from changelog import *
 # Resolution scaling
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
+# Configuration
+config = configparser.ConfigParser()
+config.read('Content/app.ini')
+path = config['CONFIG']['DownloadPath']
+
 # Environment
 try:
 	os.mkdir(f'C:/Users/{os.getlogin()}/Thumbnail')
@@ -28,6 +30,7 @@ except FileExistsError:
 
 # Variables
 list_btn_pause = []
+list_btn_cancel = []
 list_btn_is_pause = []
 list_btn_is_cancel = []
 
@@ -96,7 +99,7 @@ def download_thumbnail(url_image, title_image):
 
 
 def download_info(yt_obj):
-	global list_yt_obj, list_p_obj, list_thumbnail, list_frame_queue, list_frame_info, list_percent, list_progress, list_btn_pause, list_btn_is_pause
+	global list_yt_obj, list_p_obj, list_thumbnail, list_frame_queue, list_frame_info, list_percent, list_progress, list_btn_pause, list_btn_cancel, list_btn_is_pause
 
 	download_type_now = download_type
 
@@ -108,6 +111,7 @@ def download_info(yt_obj):
 
 	# Download a file queue
 	color_queue_line = color_frame_download
+	queue.configure(bg=color_queue_line)
 	queue_line = Frame(queue, bg=color_queue_line)
 	queue_line.grid(row=nb_video, column=0, sticky='sw')
 	list_frame_queue.append(queue_line)
@@ -176,6 +180,7 @@ def download_info(yt_obj):
 	# Cancel
 	btn_cancel = Button(list_frame_info[nb_video], command=lambda:cancel(nb_video), bg=color_bg_widget, activebackground=color_blue, cursor='hand2', image=image_cancel)
 	btn_cancel.grid(row=3, column=3, sticky='w', padx=46)
+	list_btn_cancel.append(btn_cancel)
 	list_btn_is_cancel.append(False)
 
 	# Download mode
@@ -189,7 +194,7 @@ def download_info(yt_obj):
 
 
 def download_video(url, download_type_dl, p_queue=None, p_length=None):
-	global list_video_dl_p, list_btn_is_pause, list_btn_is_cancel
+	global list_video_dl_p, list_btn_is_pause, list_btn_cancel, list_btn_is_cancel
 
 	# Connecting
 	yt = YouTube(url)
@@ -197,12 +202,13 @@ def download_video(url, download_type_dl, p_queue=None, p_length=None):
 
 	# Backup
 	dl_type_now = download_type
+	dl_mode_now = mode_download
 
 	if dl_type_now == 'single':
 		nb_video_yt = download_info(yt)
 
 	# Stream choice
-	if mode_download == 'audio':
+	if dl_mode_now == 'audio':
 		stream = yt.streams.otf(False).get_audio_only()
 	else:
 		stream = yt.streams.otf(False).get_highest_resolution()
@@ -210,13 +216,13 @@ def download_video(url, download_type_dl, p_queue=None, p_length=None):
 	filesize = stream.filesize
 
 	# File name
-	if mode_download == 'audio':
+	if dl_mode_now == 'audio':
 		file_name = f'{yt.title} [AUDIO].mp4'
 	else:
 		file_name = f'{yt.title} [AUDIO+VIDEO].mp4'
 
 	# Load and prepare the file
-	with open(f"C:/Users/{os.getlogin()}/Music/{file_name}", 'wb') as file:
+	with open(f"C:/Users/{os.getlogin()}/{path}/{file_name}", 'wb') as file:
 		stream = request.stream(stream.url)
 		downloaded = 0
 
@@ -263,6 +269,12 @@ def download_video(url, download_type_dl, p_queue=None, p_length=None):
 
 			# End of the download
 			else:
+				if dl_type_now == 'single':
+					list_btn_cancel[nb_video_yt].configure(image=image_finish)
+
+				else:
+					if percent_track_downloaded == 100:
+						list_btn_cancel[p_queue].configure(image=image_finish)
 				break
 
 
@@ -357,6 +369,31 @@ def search_video(bind_action=None):
 		except Exception as e:
 			status.set("Please provide a valid URL...")
 
+def choice_youtube():
+	global mode_plateform
+	mode_plateform = 'youtube'
+	btn_youtube.configure(bg=color_blue, cursor='arrow')
+	btn_spotify.configure(bg=color_bg_widget, cursor='hand2')
+	single()
+	btn_video.configure(state='normal')
+	opt_mode_choice.set(opt_choice[0])
+	opt_mode.configure(state='normal')
+	check_opt = True
+
+def choice_spotify():
+	global mode_plateform, download_type
+	download_type = 'playlist'
+	mode_plateform = 'spotify'
+	btn_spotify.configure(bg=color_blue, cursor='arrow')
+	btn_youtube.configure(bg=color_bg_widget, cursor='hand2')
+	txt_url.delete(0, END)
+	txt_url.insert(0, 'https://open.spotify.com/playlist/')
+	txt_btn.set("Download")
+	audio_only()
+	btn_video.configure(state='disabled')
+	opt_mode_choice.set(opt_choice[1])
+	opt_mode.configure(state='disabled')
+	check_opt = True
 
 def audio_only():
 	global mode_download
@@ -375,7 +412,7 @@ def audio_video():
 def single():
 	global download_type
 	download_type = 'single'
-	label_url.set("URL of the desired single video:")
+	label_url.set("URL of the")
 	txt_url.delete(0, END)
 	txt_url.insert(0, 'https://www.youtube.com/watch?v=')
 	txt_btn.set("Download")
@@ -384,7 +421,7 @@ def single():
 def playlist():
 	global download_type
 	download_type = 'playlist'
-	label_url.set("URL of the desired playlist video:")
+	label_url.set("URL of the")
 	txt_url.delete(0, END)
 	txt_url.insert(0, 'https://www.youtube.com/playlist?list=')
 	txt_btn.set("Download")
@@ -412,12 +449,12 @@ def cancel(idx_btn):
 
 
 def hyperlink(arg):
-	webbrowser.open(f'C:/Users/{os.getlogin()}/Music/')
+	webbrowser.open(f'C:/Users/{os.getlogin()}/{path}/')
 
 
 def check_update():
 	#messagebox.askquestion(title="Update", message="A new version of the software is available ! Do you want to update it now ?")
-	messagebox.showinfo(title="Update", message="The update function is not working yet. Please update if available to: https://github.com/LeonPupier/YouTube-Downloader")
+	messagebox.showinfo(title="Update", message="The update function is not working yet. Please update if available to: https://github.com/LeonPupier/Mensible")
 	messagebox.showinfo(title="Update", message="You already have the most recent version of the software.")
 
 
@@ -436,27 +473,44 @@ def on_closing():
 
 
 def changelog():
-	win_log = Toplevel()
-	win_log.title('Changelog')
-	win_log.geometry("600x500")
-	win_log.resizable(False, False)
-	center_window(win_log, 'changelog')
+	try:
+		# Get the Changelog file on TextUp
+		url_log = 'https://textup.fr/622032pL?filetype=txt'
+		r_log = requests.get(url_log, allow_redirects=True)
 
-	text_log = Text(win_log)
-	text_log.pack(side=LEFT)
+		file_changelog = open(f'Content/changelog.txt', 'wb')
+		file_changelog.write(r_log.content)
+		file_changelog.close()
 
-	log = changelog_txt()
+		file_changelog = open(f'Content/changelog.txt', 'r')
+		log = file_changelog.read()
+		file_changelog.close()
 
-	text_log.insert(END, log)
-	text_log.configure(state="disabled")
+		# Window
+		win_log = Toplevel()
+		win_log.title('Changelog')
+		win_log.geometry("700x500")
+		win_log.resizable(False, False)
+		center_window(win_log, 'changelog')
+
+		text_log = Text(win_log)
+		text_log.pack(side=LEFT)
+
+		text_log.insert(END, log)
+		text_log.configure(state="disabled")
+
+	# No internet
+	except:
+		messagebox.showerror(title="Changelog", message="Please check your internet connection to get the most recent changelog...")
 
 
 # Initialisation
 window = Tk()
-window.title('YouTube Downloader v1.3.0')
-window.geometry("900x700")
-window.resizable(False, False)
+window.title('Mensible v1.4.0')
+window.geometry("1000x700")
+window.minsize(1000, 700)
 center_window(window)
+balloon = Pmw.Balloon(window)
 
 title_font = tkFont.Font(family='Segoe', size='12', weight='bold')
 void_font = tkFont.Font(family='Segoe', size='15', weight='bold')
@@ -471,30 +525,58 @@ mode_download = None
 menubar = Menu(window)
 
 menu1 = Menu(menubar, tearoff=0)
-menu1.add_command(label="Single", command=single)
-menu1.add_command(label="Playlist", command=playlist)
+menu1.add_command(label="Check for updates...", command=check_update)
 menu1.add_separator()
 menu1.add_command(label="Shutdown", command=on_closing)
-menubar.add_cascade(label="Mode", menu=menu1)
+menubar.add_cascade(label="Software", menu=menu1)
 
 menu2 = Menu(menubar, tearoff=0)
-menu2.add_command(label="Check for updates...", command=check_update)
 menu2.add_command(label="Changelog", command=changelog)
 menubar.add_cascade(label="Help", menu=menu2)
 
 window.config(menu=menubar)
 
 # Credit
-Label(window, text="● YouTube Downloader ●", font=title_font, bg=color_theme, fg=color_title).pack()
+Label(window, text="● YouTube & Spotify downloader ●", font=title_font, bg=color_theme, fg=color_title).pack()
 Label(window, text="Uploaded videos will not exceed 720p resolution due to a blocking by Google LLC.", bg=color_theme, fg=color_text, font=main_font).pack()
 space()
 
 c2 = Frame(window, bg=color_frame_download)
 c2.pack()
 
+# YOUTUBE/SPOTIFY CHOICE
+
+image_btn_youtube = ImageTk.PhotoImage(Image.open('Content/Images/youtube.png'))
+btn_youtube = Button(c2, command=choice_youtube, bg=color_bg_widget, fg=color_title, activebackground=color_blue, cursor='hand2', image=image_btn_youtube)
+btn_youtube.pack(padx=5, pady=5, side=LEFT)
+balloon.bind(btn_youtube, "Download from YouTube")
+
+image_btn_spotify = ImageTk.PhotoImage(Image.open('Content/Images/spotify.png'))
+btn_spotify = Button(c2, command=choice_spotify, bg=color_bg_widget, fg=color_title, activebackground=color_blue, cursor='hand2', image=image_btn_spotify)
+btn_spotify.pack(padx=5, pady=5, side=LEFT)
+balloon.bind(btn_spotify, "Download from Spotify")
+
+# LABEL URL
+
 label_url = StringVar()
-label_url.set("URL of the desired single video:")
+label_url.set("URL of the")
 Label(c2, textvariable=label_url, font=bold_font, bg=color_frame_download, fg=color_title).pack(side=LEFT)
+
+# OPTION CHOICE SINGLE/PLAYLIST
+
+opt_choice = [
+"video",
+"playlist"] 
+
+opt_mode_choice = StringVar(c2)
+opt_mode_choice.set(opt_choice[0])
+opt_mode = OptionMenu(c2, opt_mode_choice, *opt_choice)
+opt_mode.config(font=bold_font, bg=color_frame_download, relief='flat', activebackground=color_blue, bd=0, width=6, cursor='hand2')
+opt_mode.pack(padx=5, pady=5, side=LEFT)
+Label(c2, text=":", font=bold_font, bg=color_frame_download, fg=color_title).pack(side=LEFT)
+
+# ENTRY URL
+
 txt_url = Entry(c2, width=50, justify='left')
 txt_url.insert(END, 'https://www.youtube.com/watch?v=')
 txt_url.pack(padx=5, pady=5, side=LEFT)
@@ -503,19 +585,20 @@ window.bind('<Return>', search_video)
 # DOWNLOAD MODE CHOICE
 
 image_btn_audio = ImageTk.PhotoImage(Image.open('Content/Images/audio.png'))
-frame_audio_idx = 0
 btn_audio = Button(c2, command=audio_only, bg=color_bg_widget, fg=color_title, activebackground=color_blue, cursor='hand2', image=image_btn_audio)
 btn_audio.pack(padx=5, pady=5, side=LEFT)
+balloon.bind(btn_audio, "Download only the audio of the video")
 
 image_btn_video = ImageTk.PhotoImage(Image.open('Content/Images/video.png'))
-frame_video_idx = 0
 btn_video = Button(c2, command=audio_video, bg=color_bg_widget, fg=color_title, activebackground=color_blue, cursor='hand2', image=image_btn_video)
 btn_video.pack(padx=5, pady=5, side=LEFT)
+balloon.bind(btn_video, "Download the audio and video")
 
 txt_btn = StringVar()
 txt_btn.set("Download")
 btn_search = Button(c2, textvariable=txt_btn, bg=color_bg_widget, fg=color_title, font=bold_font, activebackground=color_blue, command=search_video, cursor='hand2')
 btn_search.pack(padx=5, pady=5, side=LEFT)
+balloon.bind(btn_search, "Download the file from the provided URL")
 space()
 
 # No queue
@@ -526,7 +609,7 @@ label_txt_void = Label(window, text="There are no downloads in progress...", bg=
 label_txt_void.pack()
 
 # Music folder
-lbl_link = Label(window, text=f"Your files are in the Music folder: {f'C:/Users/{os.getlogin()}/Music'}", bg=color_theme, cursor='hand2')
+lbl_link = Label(window, text=f"Your files are in the folder: {f'C:/Users/{os.getlogin()}/{path}'}", bg=color_theme, cursor='hand2')
 lbl_link.pack()
 lbl_link.configure(fg=color_blue)
 lbl_link.bind("<Button-1>", hyperlink)
@@ -547,13 +630,35 @@ Label(window, text="This service does not respect the TOS and copyrights on YouT
 # Loop
 liste_file = []
 current_queue = 0
+check_opt = False
 
+# Pre-selected options
+choice_youtube()
+audio_only()
+
+# Images data
 image_pause = ImageTk.PhotoImage(Image.open('Content/Images/pause.png'))
 image_resume = ImageTk.PhotoImage(Image.open('Content/Images/play.png'))
 image_cancel = ImageTk.PhotoImage(Image.open('Content/Images/cancel.png'))
+image_finish = ImageTk.PhotoImage(Image.open('Content/Images/finish.png'))
 
 def loop_method():
-	window.after(1000, loop_method)
+	global check_opt
+
+	# Mode download
+	if check_opt:
+		opt_str = opt_mode_choice.get()
+
+		if opt_str == 'video':
+			single()
+
+		elif opt_str == 'playlist':
+			if mode_plateform == 'youtube':
+				playlist()
+
+		check_opt = False
+
+	window.after(10, loop_method)
 
 # Refresh
 window.after(0, loop_method)
