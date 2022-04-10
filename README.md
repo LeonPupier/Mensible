@@ -1,5 +1,5 @@
 # Mensible
-Software to download videos and music from a YouTube or Spotify URL for free in .mp4 format.
+Software to download videos and music from a YouTube or Spotify URL for free.
 
 ### Youtube
 Possibility to download only the audio of a video or its whole.
