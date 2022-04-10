@@ -20,10 +20,5 @@ Autonomous update function thanks to the GitHub folder.
 # Changelog
 The changes file is available at this address: https://textup.fr/622032pL
 
-# Known issues
-  - The update function is not working yet.
-
 ## Credits
-__Python libraries used:__ os, tkinter, threading, pytube, webbrowser, requests, shutil, re, PIL, ctypes
-
 Léon Pupier - 2022
