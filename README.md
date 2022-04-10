@@ -18,7 +18,7 @@ Autonomous update function thanks to the GitHub folder.
 ![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Content/img2.png?raw=true)
 
 # Changelog
-https://textup.fr/622032pL
+The changes file is available at this address: https://textup.fr/622032pL
 
 # Known issues
   - The update function is not working yet.
