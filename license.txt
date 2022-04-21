@@ -1,0 +1,33 @@
+Mensible License
+==================
+
+2022 Léon Pupier. All rights reserved.
+
+Permission is granted to anyone to use this software provided that the following conditions are met:
+
+1. The author of the software must be explicitly bound to any redistribution of the software.
+
+2. The compiled binary must not be modified in any way and must remain as is.
+
+3. The origin of this software must not be misrepresented; you must not claim that you wrote the
+   original software.
+
+4. No commercial use is allowed.
+
+5. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+   IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+   OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+   OTHER DEALINGS IN THE SOFTWARE.
+
+Additional information:
+
+1. No information about the users of this software is collected by its author.
+
+2. Please refer to the GitHub repository (https://github.com/LeonPupier/Mensible) to be aware of third party partners related to the software.
+
+==================
+Léon Pupier
+https://leonpupier.fr/
