@@ -1,6 +1,11 @@
 # Mensible
 Software to download videos and music from a YouTube or Spotify URL for free.
 
+# Installation
+Please download the installer named "**Mensible_Setup.exe**" from the latest release [available here](https://github.com/LeonPupier/Mensible/releases/latest/).
+
+# Features
+
 ### Youtube
 Possibility to download only the audio of a video or its whole.
 Includes a playlist mode that allows you to download all the videos in a public YouTube playlist at once.
