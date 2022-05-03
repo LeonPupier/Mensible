@@ -85,7 +85,7 @@ Don't worry, you just have to launch the application and the update will be done
 # Credits
 The software was thought, coded and realized by *Léon Pupier*.
 
-Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/fr/).
+Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/).
 
 The changes file is available at [this address](https://textup.fr/622032pL).
 
