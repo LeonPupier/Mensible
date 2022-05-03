@@ -29,8 +29,10 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#description">Description</a></li>
+    <li><a href="#requirements">Requirements</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#credits">Credits</a></li>
     <li><a href="#license">License</a></li>
@@ -41,25 +43,46 @@
 <!-- CONTENTS -->
 # Description
 
+# Requirements
+In order to use the software on your computer, it must meet several requirements:
+- Operating system: *Windows 7/8/10/11*
+- Processor architecture: *32/64 bits*
+- Internet access required
+- **Administrator rights are optional**
+
 # Installation
+To install ***Mensible*** on your computer under *Windows* you just have to download the following [installer](https://github.com/LeonPupier/Mensible/releases/latest) 
+and follow the instructions of the executable named **Mensible_Setup.exe**.
+
+The executable will install the essential components but at the first start you will have to download the last version of the software for it to work, **otherwise Mensible will not be operational**.
+
+Don't worry, you just have to launch the application and the update will be done automatically without any complex manipulation on your part. After that, you just have to restart the application for the update to take effect and you're done!
+
+*There is no need to restart the computer for the software to install perfectly.*
 
 # Roadmap
+- [x] Operational download on the following platforms
+  - [x] YouTube
+  - [x] Spotify (Beta support)
 - [ ] Multi-language Support
+    - [x] English
     - [x] Français
     - [x] Deutsch
     - [x] Español
     - [ ] Italiano
 
+# Gallery
+<div>
+  <img src="Description/1.png" alt="State at the opening" width="333">
+  <img src="Description/2.png" alt="Example of a queue" width="300">
+  <img src="Description/3.png" alt="Settings window" width="333">
+</div>
+
 # Contributing
+The changes file is available at this address: https://textup.fr/622032pL
 
 # Credits
 
 # License
 
 # Contact
-
-![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Description/1.png?raw=true)
-
-![alt text](https://github.com/LeonPupier/YouTube-Downloader/blob/main/Description/2.png?raw=true)
-
-The changes file is available at this address: https://textup.fr/622032pL
