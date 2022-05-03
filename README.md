@@ -22,7 +22,7 @@
 <!-- PROJECT SHIELDS -->
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/LeonPupier/Mensible/)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://github.com/LeonPupier/Mensible/)
-[![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://github.com/LeonPupier/Mensible/)
+[![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://gprivate.com/5z287)
 
 <!-- TABLE OF CONTENTS -->
 <details>
