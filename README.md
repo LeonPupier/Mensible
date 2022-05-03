@@ -10,7 +10,7 @@
   <p align="center">
     A software to download videos and music for free !
     <br />
-    <a href="https://github.com/LeonPupier/Mensible/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://www.leonpupier.fr/projects/mensible"><strong>See on the website »</strong></a>
     <br />
     <br />
     <a href="https://github.com/LeonPupier/Mensible/issues">Report Bug or request feature</a>
@@ -33,7 +33,6 @@
     <li><a href="#installation">Installation</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#credits">Credits</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -42,6 +41,11 @@
 
 <!-- CONTENTS -->
 # Description
+***Mensible*** is a completely **free software** financed only by [donations](https://ko-fi.com/leonpupier) from generous users with the goal of providing you with the ability **to download videos and music** hosted on *YouTube* and *Spotify* **for free**.
+
+You just have to provide the URL of the video and that's it! The interface is **simple** and **pleasant**. You can download the music **one by one** or provide the link of a **playlist** and everything will be downloaded at the same time, convenient no?
+
+Several files can be downloaded **at the same time** and you can **customize the application** with the included settings like the **language** used.
 
 # Requirements
 In order to use the software on your computer, it must meet several requirements:
@@ -78,11 +82,24 @@ Don't worry, you just have to launch the application and the update will be done
   <img src="Description/3.png" alt="Settings window" width="250">
 </div>
 
-# Contributing
-The changes file is available at this address: https://textup.fr/622032pL
-
 # Credits
+The software was thought, coded and realized by *Léon Pupier*.
+
+Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/fr/).
+
+The changes file is available at [this address](https://textup.fr/622032pL).
 
 # License
+[See the software license](https://github.com/LeonPupier/Mensible/blob/main/license.txt) on the GitHub repository.
 
 # Contact
+**Contact me:**
+<p>
+  <a href="https://twitter.com/Came_Le0n">Twitter</a>
+  ●
+  <a href="https://www.instagram.com/leon.pupier/">Instagram</a>
+</p>
+
+**Email:** [leonpupier@gmail.com](mailto:leonpupier@gmail.com)
+
+**Website:** [leonpupier.fr](https://leonpupier.fr)
