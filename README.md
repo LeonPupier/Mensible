@@ -73,9 +73,9 @@ Don't worry, you just have to launch the application and the update will be done
 
 # Gallery
 <div>
-  <img src="Description/1.png" alt="State at the opening" width="333">
-  <img src="Description/2.png" alt="Example of a queue" width="300">
-  <img src="Description/3.png" alt="Settings window" width="333">
+  <img src="Description/1.png" alt="State at the opening" width="250">
+  <img src="Description/2.png" alt="Example of a queue" width="250">
+  <img src="Description/3.png" alt="Settings window" width="250">
 </div>
 
 # Contributing
