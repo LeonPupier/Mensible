@@ -20,6 +20,9 @@
 </div>
 
 <!-- PROJECT SHIELDS -->
+[![Release](https://img.shields.io/github/release/LeonPupier/Mensible.svg)](https://github.com/LeonPupier/Mensible/releases)
+[![Downloads](https://img.shields.io/github/downloads/LeonPupier/Mensible/total.svg)](https://github.com/LeonPupier/Mensible/releases)
+
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/LeonPupier/Mensible/)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://github.com/LeonPupier/Mensible/)
 [![forthebadge](https://forthebadge.com/images/badges/mom-made-pizza-rolls.svg)](https://gprivate.com/5z287)
