@@ -26,7 +26,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary><b>Table of Contents</b></summary>
   <ol>
     <li><a href="#description">Description</a></li>
     <li><a href="#requirements">Requirements</a></li>
