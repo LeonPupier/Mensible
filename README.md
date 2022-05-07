@@ -52,8 +52,8 @@ Several files can be downloaded **at the same time** and you can **customize the
 
 # Requirements
 In order to use the software on your computer, it must meet several requirements:
-- Operating system: *Windows 7/8/10/11*
-- Processor architecture: *32/64 bits*
+- Operating system: *Windows 7 / 8 / 10 / 11*
+- Processor architecture: *32 / 64 bits (recommended)*
 - Internet access required
 - **Administrator rights are optional**
 
