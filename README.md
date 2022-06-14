@@ -97,11 +97,6 @@ The changes file is available at [this address](https://textup.fr/622032pL).
 
 # Contact
 **Contact me:**
-<p>
-  <a href="https://twitter.com/Came_Le0n">Twitter</a>
-  ●
-  <a href="https://www.instagram.com/leon.pupier/">Instagram</a>
-</p>
 
 **Email:** [leonpupier@gmail.com](mailto:leonpupier@gmail.com)
 
