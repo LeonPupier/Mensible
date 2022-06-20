@@ -1,7 +1,7 @@
 Mensible License
 ==================
 
-2022 Léon Pupier. All rights reserved.
+Léon Pupier. All rights reserved.
 
 Permission is granted to anyone to use this software provided that the following conditions are met:
 
