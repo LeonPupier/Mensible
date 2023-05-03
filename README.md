@@ -50,9 +50,9 @@ You are now ready to use Mensible!
 
 ### Gallery
 <div>
-  <img src="Description/1.png" alt="State at the opening" width="250">
-  <img src="Description/2.png" alt="Example of a queue" width="250">
-  <img src="Description/3.png" alt="Settings window" width="250">
+  <img src="Documentation/home.png" alt="State at the opening" width="250">
+  <img src="Documentation/settings.png" alt="Settings window" width="250">
+  <img src="Documentation/credits.png" alt="Credits window" width="250">
 </div>
 
 
