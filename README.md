@@ -66,7 +66,7 @@ coming soon:
 - [ ] Wait for user feedback
 - [ ] Features under consideration...
 
-| see the full [changelog](https://github.com/LeonPupier/Mensible/Content/changelog.txt) here.
+| see the full [changelog](https://github.com/LeonPupier/Mensible/blob/master/Content/changelog.txt) here.
 
 ### License
 The software license is accessible from the file ```LICENSE.txt```.
