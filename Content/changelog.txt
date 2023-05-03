@@ -1,0 +1,133 @@
+CHANGELOG MENSIBLE - Léon Pupier - 2022 / 2023
+
+[⚠️ KNOWN ISSUES]
+- No problems are known yet.
+
+v1.5.0 [MAJOR]
+First update of 2023!
+- New modern interface for Mensible
+- Linux platforms are now supported, in addition to Windows
+- Significantly improved Spotify support, now in official release
+- Spotify linking is now available in settings
+- Introducing dynamically changeable light and dark themes
+- Support for Italiano
+- Support for 中国人 (Chinese)
+- Rework of some button icons
+- Overall ergonomic improvements for easier reading
+- Parameters, Changelog and Credits are available directly in the parent window now
+- Overall compatibility optimization of operating systems and resources
+- Total improvement of the design of the credits and settings window
+- Videos downloaded from a playlist are now stored in a folder with the title of the playlist
+- Added an indicator on the size of the file being downloaded
+- Added "Survey" section in the help menu
+- Added loading screen for better fluidity and ergonomics
+- Added an option to change the default size of a download chunk
+- [Fixing] Total rewrite of the code to modernize and harmonize everything
+- [Fixing] Perfect fluidity achieved with the addition of rendering and asynchronous calculations
+- [Fixing] Fixed a problem preventing the recovery of youtube video info
+- [Fixing] Effective deletion of canceled files being downloaded
+- [Fixing] The Changelog online support is not yet available for more stability and autonomy
+- [Fixing] Correction of typography and languages
+- [Fixing] Disabling the possibility to modify the size of the window (useless option)
+- [Fixing] Fixed an issue that broke the save path for downloads
+- [Fixing] Changed color of hover info bubbles based on the theme for better visibility
+- [Fixing] The software is now fully compatible with the 3.11.0rc1 version of Python
+- [Fixing] Closing standalone support for installing updates to avoid compatibility issues between systems
+- [Fixing] Reduced the number of simultaneous downloads from 4 to 3 for better stability
+- [Fixing] End of the Digital Right Management (DRM) system in the software
+- [Fixing] Various minor patches
+
+v1.4.6 [MINOR]
+- New icons in the download bar
+- Improved button appearance to match the operating system
+- Added Spotify banner for the playlist thumbnail
+- Minor interface changes
+
+v1.4.5 [MINOR]
+- You can now support me on Ko-Fi (https://ko-fi.com/leonpupier) !
+
+v1.4.4 [MINOR]
+- Support for Spanish
+- Support for German
+- Support for French
+- Loading cursor for music/video search
+- [Fixing] Wrong folder for writing files
+- [Fixing] Problem of positioning in the queue
+
+v1.4.3 [MINOR]
+- Improved installer for updates
+- Logging added to the installer
+- Impossible to launch two instances at the same time
+- [Fixing] Display of the queue when it closes
+- [Fixing] The pause function is disabled at the end of a download
+- [Fixing] Adjusting the placement of widgets in the queue
+- [Fixing] Removing the update function shortcut from the menu
+- [Fixing] Redirection of the current path
+- [Fixing] Change of the application's tree structure
+
+v1.4.2 [MINOR]
+- Event logging makes its appearance
+- [Fixing] Pytube problem preventing URL resolution
+
+v1.4.1 [MINOR]
+- [Fixing] Resolution of a bad detection of the playlist mode
+- [Fixing] Fixed an important problem that prevented any download
+
+v1.4.0 [MAJOR]
+- Playlist from Spotify supported for download
+- Ability to change update preferences
+- Ability to change the current language
+- Ability to change the download folder
+- New window to change the application settings
+- New window to update the software
+- Added a loading screen when starting the software
+- Arrival of a credits window in the "Help" category
+- Added tooltips for buttons to explain their functions
+- Integration of a single/playlist dropdown to improve clarity
+- The window is now resizable
+- Add a validation button at the end of a download
+- The changelog is now hosted online
+- Change of some button images for better sharpness
+- [Fixing] The software changes its name and becomes "Mensible"
+- [Fixing] Functional autonomous update function
+- [Fixing] Various major and minor patches
+
+v1.3.0 [MAJOR]
+- New software interface
+- Displaying the video thumbnail
+- Displaying the title, date, views, owner and description
+- Setting up an installer
+- Ability to pause and stop a download
+- Queue of 4 videos at the same time
+- [Info] Support for the portable version stopped
+- [Fixing] Some URLs are not recognized
+- [Fixing] Threading works perfectly
+- [Fixing] Performance optimization/memory leak correction
+- [Fixing] Various major and minor patches
+
+v1.2.1 [MINOR]
+- Change of icon for the application
+- [Fixing] The Download button may not reactivate
+- [Fixing] Various minor patches
+
+v1.2.0 [MAJOR]
+- Changelog
+- Dynamic progress bar during download
+- Link to the windows file explorer for the music folder
+- Internet update system in stand-alone version
+- [Fixing] End of download not detected
+- [Fixing] Various minor patches
+
+v1.1.0 [MAJOR]
+- Playlist download supported
+- [Fixing] Various minor patches
+
+v1.0.0 [MAJOR]
+- Download a file from YouTube
+- Selection of the audio or the whole file
+- Build of the application for Windows 7 system and after
+- 32 and 64 bits supported
+
+-----
+Thank you for using Mensible and support me on Ko-Fi (https://ko-fi.com/leonpupier) !
+-----
