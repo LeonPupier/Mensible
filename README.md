@@ -79,5 +79,11 @@ The software license is accessible from the file ```LICENSE```.
 
 Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/).
 
+### How to support me ?
+If you want to help me financially to support my projects and my little student life,
+I would greatly appreciate a small donation from you on Ko-Fi :)
+
+Here is the link to my profile: https://ko-fi.com/leonpupier
+
 ### Contact me
 [e-mail](mailto:public_contact.l2qt6@slmail.me) - [website](https://leonpupier.fr)
