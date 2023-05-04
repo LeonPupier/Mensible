@@ -72,7 +72,7 @@ coming soon:
 | see the full [changelog](https://github.com/LeonPupier/Mensible/blob/master/Content/changelog.txt) here.
 
 ### License
-The software license is accessible from the file ```LICENSE.txt```.
+The software license is accessible from the file ```LICENSE```.
 
 Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/).
 
