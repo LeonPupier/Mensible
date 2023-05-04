@@ -52,11 +52,14 @@ python3 main.py
 You are now ready to use Mensible!
 
 ### Gallery
-<div>
-  <img src="Documentation/home.png" alt="State at the opening" width="250">
-  <img src="Documentation/settings.png" alt="Settings window" width="250">
-  <img src="Documentation/credits.png" alt="Credits window" width="250">
-</div>
+| _`Home page` state at the opening, base on version 1.5.0_
+![](Documentation/home.png)
+
+| _`Settings window` base on version 1.5.0_
+![](Documentation/settings.png)
+
+| _`Credits window` base on version 1.5.0_
+![](Documentation/credits.png)
 
 
 ### Roadmap
