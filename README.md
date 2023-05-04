@@ -30,7 +30,7 @@ the application with the included settings like the language used.
 
 ### Requirements
 In order to use the software on your computer, it must meet several requirements:
-- **Operating system:**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows, Linux
+- **Operating system:**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linux, Windows (Full compatibility in progess)
 - **Processor architecture:**&nbsp;&nbsp;&nbsp;&nbsp;64 bits recommended
 - **Informations:**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Internet access required and administrator rights are optional
 
