@@ -57,6 +57,9 @@ You are now ready to use Mensible!
 | _`Home page` state at the opening, base on version 1.5.0_
 ![](Documentation/home.png)
 
+| _`Download window` base on version 1.5.1_
+![](Documentation/download.png)
+
 | _`Settings window` base on version 1.5.0_
 ![](Documentation/settings.png)
 
