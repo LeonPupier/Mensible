@@ -173,7 +173,7 @@ class Downloader:
 						yt.title = self.safe_title(yt)
 						Thread(target=self.board.download_video, args=(yt,)).start()
 						break
-					except:
+					except Exception as e:
 						logging.debug(f'Error Pytube in Playlist mode: {e}')
 			
 			# Increment the number of video
