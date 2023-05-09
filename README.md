@@ -52,6 +52,7 @@ python3 -m pip -r requirements.txt
 python3 main.py
 ```
 You are now ready to use Mensible!
+##### ⚠️ *Warning, download the releases and do not clone the repo. It is a working tool in perpetual improvement. You expose yourself to bugs and instability (Except if you want to hunt bugs).*
 
 ### Gallery
 | _`Home page` state at the opening, base on version 1.5.0_
