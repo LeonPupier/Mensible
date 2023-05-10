@@ -3,6 +3,10 @@ CHANGELOG MENSIBLE - Léon Pupier - 2022 / 2023
 [⚠️ KNOWN ISSUES]
 - No problems are known yet.
 
+v1.5.2 [MINOR]
+- [Fixed] Fixed an issue preventing playlist downloading with special characters on Windows (see issue #9)
+- [Fixed] Accuracy during the download status of playlists
+
 v1.5.1 [MINOR]
 - [Fixed] Fixed an issue preventing the downloading of some YouTube playlists (see issue #9)
 

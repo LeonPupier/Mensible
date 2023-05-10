@@ -64,7 +64,7 @@ class Downloader:
 			while (1):
 				try:
 					self.yt = YouTube(self.url)
-					self.yt.title = self.safe_title(self.yt)
+					self.yt.title = self.safe_title(self.yt.title)
 					break
 
 				except (pytube.exceptions.RegexMatchError):
@@ -141,8 +141,9 @@ class Downloader:
 				logging.debug(f'Error download infos Playlist: {e}')
 				return
 
-			# End cursor animation
+			# End cursor animation and reset status
 			self.window.config(cursor='')
+			self.window.status.set("")
 
 			# Prepare the queue space
 			self.window.label_img_void.pack_forget()
@@ -170,7 +171,7 @@ class Downloader:
 				while (1):
 					try:
 						yt = YouTube(url)
-						yt.title = self.safe_title(yt)
+						yt.title = self.safe_title(yt.title)
 						Thread(target=self.board.download_video, args=(yt,)).start()
 						break
 					except Exception as e:
@@ -180,16 +181,16 @@ class Downloader:
 			self.nb_video += 1
 
 
-	def safe_title(self, yt_obj):
+	def safe_title(self, title):
 		# Save the title
-		safe_title = yt_obj.title
+		new_title = title
 
 		# Remove the forbidden characters
 		for carac in '''/:*?"<>|''':
-			if carac in yt_obj.title:
-				safe_title = ''.join(safe_title.split(carac))
+			if carac in title:
+				new_title = ''.join(new_title.split(carac))
 		
-		return safe_title
+		return new_title
 
 
 	def download_thumbnail(self, url_image, title_image):

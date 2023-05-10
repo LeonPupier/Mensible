@@ -23,7 +23,7 @@ class Board:
 
 		# Check mode download selected
 		if self.download_type == 'playlist':
-			self.playlist_title = self.downloader.title
+			self.playlist_title = self.downloader.safe_title(self.downloader.title)
 			self.nb_video_downloaded = 0
 			self.nb_video_to_download = len(self.downloader.list_videos)
 
