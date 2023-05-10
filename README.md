@@ -89,7 +89,7 @@ Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/
 If you want to help me financially to support my projects and my little student life,
 I would greatly appreciate a small donation from you on Ko-Fi :)
 
-Here is the link to my profile: https://ko-fi.com/leonpupier
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V5C9VK8)
 
 ### Contact me
 [e-mail](mailto:public_contact.l2qt6@slmail.me) - [website](https://leonpupier.fr)
