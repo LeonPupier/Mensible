@@ -45,6 +45,9 @@ Internet access required and administrator rights are optional
 
 **2.** Before you can launch the software, you must install its dependencies.
 Nothing could be simpler, just run this command at the root of the folder:
+
+##### ℹ️ *Please note that depending on the configuration, the "python3" command may be replaced by "python" or even "py".*
+
 ```
 python3 -m pip -r requirements.txt
 ```
@@ -53,6 +56,7 @@ python3 -m pip -r requirements.txt
 python3 main.py
 ```
 You are now ready to use Mensible!
+
 ##### ⚠️ *Warning, download the releases and do not clone the repo. It is a working tool in perpetual improvement. You expose yourself to bugs and instability (Except if you want to hunt bugs).*
 
 ### Gallery
