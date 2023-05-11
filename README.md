@@ -34,7 +34,7 @@ the application with the included settings like the language used.
 ### Requirements
 In order to use the software on your computer, it must meet several requirements:
 - **Operating system:**
-Linux, Windows (Full compatibility in progess)
+Linux, Windows
 - **Processor architecture:**
 64 bits recommended
 - **Informations:**
