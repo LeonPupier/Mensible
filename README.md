@@ -22,14 +22,12 @@
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/LeonPupier/Mensible/)
 
 ### Description
-
-Mensible is a completely free software financed only by donations from generous users
-with the goal of providing you with the ability to download videos and music hosted
-on YouTube and Spotify for free. You just have to provide the URL of the video and
-that's it! The interface is simple and pleasant. You can download the music one by one
-or provide the link of a playlist and everything will be downloaded at the same time,
-convenient no? Several files can be downloaded at the same time and you can customize
-the application with the included settings like the language used.
+Mensible is a completely free software financed only by donations from generous
+users in order to offer you the possibility to download videos and music hosted
+on YouTube and Spotify for free. All you have to do is enter the URL of the video
+and you're done! The interface is simple and pleasant. You can download the music
+one by one or provide the link of a playlist and everything will be downloaded at
+the same time, convenient no? You can also customize the application via the settings.
 
 ### Requirements
 In order to use the software on your computer, it must meet several requirements:
@@ -80,7 +78,7 @@ since v1.5.0:
 - [x] Make source code public !
 
 coming soon:
-- [ ] Wait for user feedback
+- [ ] Total unblocking of the video quality
 - [ ] Features under consideration...
 
 | see the full [changelog](https://github.com/LeonPupier/Mensible/blob/master/Content/changelog.txt) here.
@@ -92,7 +90,7 @@ Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/
 
 ### How to support me ?
 If you want to help me financially to support my projects and my little student life,
-I would greatly appreciate a small donation from you on Ko-Fi :)
+I would greatly appreciate a small donation from you on **Ko-Fi** :)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V5C9VK8)
 
