@@ -11,7 +11,7 @@ class SoftwareInformations:
 	def __init__(self):
 		# Informations
 		self.title = "Mensible"
-		self.version = "1.5.2"
+		self.version = "1.5.3"
 		self.author = "Léon Pupier"
 		self.website = "https://leonpupier.fr"
 		self.date = "2022 / 2023"
@@ -52,6 +52,7 @@ class SoftwareInformations:
 		self.language = config['CONFIG']['language']
 		self.path = config['CONFIG']['download.path']
 		self.chunk_size = config['CONFIG']['download.chunk_size']
+		self.quality = config['CONFIG']['download.quality']
 		self.theme = int(config['CONFIG']['theme'])
 		self.spotify_client_id = config['CONFIG']['spotify.client']
 		self.spotify_password = config['CONFIG']['spotify.password']

@@ -58,6 +58,16 @@ class Downloader:
 		# Get the url of the video
 		self.url = self.window.txt_url.get()
 
+		# Set the URL entry to default
+		self.window.txt_url.delete(0, END)
+		if self.download_type == 'single':
+			self.window.txt_url.insert(0, 'https://www.youtube.com/watch?v=')
+		else:
+			self.window.txt_url.insert(0, 'https://www.youtube.com/playlist?list=')
+		
+		# Reset cursor to default
+		self.window.config(cursor='')
+
 		# Check if the download mode is single or playlist
 		if self.download_type == 'single':
 			# Check if the url is valid
@@ -93,16 +103,6 @@ class Downloader:
 			self.window.queue_label.configure(text=f"{self.software.l.lang['download_queue']} {self.software.current_queue}/3")
 			self.window.status.set("")
 
-			# Set the URL entry to default
-			self.window.txt_url.delete(0, END)
-			if self.download_type == 'single':
-				self.window.txt_url.insert(0, 'https://www.youtube.com/watch?v=')
-			else:
-				self.window.txt_url.insert(0, 'https://www.youtube.com/playlist?list=')
-
-			# Reset cursor to default
-			self.window.config(cursor='')
-
 			# Download informations of the video
 			self.download_info(self.yt)
 
@@ -111,9 +111,11 @@ class Downloader:
 			self.board.instance()
 			self.nb_video += 1
 
-			# Download the video
-			thread_download = Thread(target=self.board.download_video, args=(self.yt,))
-			thread_download.start()
+			# Download the music/video
+			if self.mode_download == 'audio':
+				Thread(target=self.board.download_music, args=(self.yt, )).start()
+			else:
+				Thread(target=self.board.download_video, args=(self.yt, )).start()
 
 
 		# Playlist mode
@@ -167,16 +169,20 @@ class Downloader:
 			self.board.instance()
 
 			# Create the list of video object for download
+			self.list_yt_objects = []
 			for url in self.list_videos:
 				while (1):
 					try:
 						yt = YouTube(url)
 						yt.title = self.safe_title(yt.title)
-						Thread(target=self.board.download_video, args=(yt,)).start()
+						self.list_yt_objects.append(yt)
 						break
 					except Exception as e:
 						logging.debug(f'Error Pytube in Playlist mode: {e}')
-			
+
+			# Launch the download of the playlist
+			Thread(target=self.board.download_playlist, args=(self.list_yt_objects, )).start()
+
 			# Increment the number of video
 			self.nb_video += 1
 

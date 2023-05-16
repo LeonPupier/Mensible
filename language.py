@@ -38,7 +38,7 @@ class English():
 			'shutdown':"Shutdown",
 			'help':"Help",
 			'title_software':"● YouTube & Spotify downloader ●",
-			'disclaimer_software':"Uploaded videos will not exceed 720p.",
+			'disclaimer_software':" by ",
 			'download_youtube':"Download from YouTube",
 			'download_spotify':"Download from Spotify",
 			'download_audio':"Download only the audio of the video",
@@ -81,6 +81,9 @@ class English():
 			'bad_spotify_account': "Invalid Spotify account, please visit settings...",
 			'block_settings': "Settings are blocked during a download...",
 			'folder_error': "The folder does not exist, please visit settings...",
+			'quality': "Quality of the video:",
+			'quality_not_available': "Quality not available: ",
+			'download_cancel': "Download canceled.",
 		}
 
 class Francais():
@@ -123,7 +126,7 @@ class Francais():
 			'shutdown':"Arrêt",
 			'help':"Aide",
 			'title_software':"● Convertisseur YouTube et Spotify ●",
-			'disclaimer_software':"Les vidéos téléchargées ne dépasseront pas 720p.",
+			'disclaimer_software':" par ",
 			'download_youtube':"Télécharger depuis YouTube",
 			'download_spotify':"Télécharger depuis Spotify",
 			'download_audio':"Télécharger seulement l'audio de la vidéo",
@@ -166,6 +169,9 @@ class Francais():
 			'bad_spotify_account': "Compte Spotify invalide, veuillez visiter les paramètres...",
 			'block_settings': "Les paramètres sont bloqués pendant un téléchargement...",
 			'folder_error': "Le dossier n'existe pas, veuillez visiter les paramètres...",
+			'quality': "Qualité de la vidéo:",
+			'quality_not_available': "Qualité non disponible: ",
+			'download_cancel': "Téléchargement annulé.",
 		}
 
 class Deutsch():
@@ -208,7 +214,7 @@ class Deutsch():
 			'shutdown':"Stopp",
 			'help':"Hilfe",
 			'title_software':"● YouTube und Spotify-Downloader ●",
-			'disclaimer_software':"Die hochgeladenen Videos werden nicht mehr als 720p betragen.",
+			'disclaimer_software':" von ",
 			'download_youtube':"Von YouTube hochladen",
 			'download_spotify':"Von Spotify herunterladen",
 			'download_audio':"Nur den Ton des Videos herunterladen",
@@ -251,6 +257,9 @@ class Deutsch():
 			'bad_spotify_account': "Ungültiges Spotify-Konto, bitte besuchen Sie die Einstellungen...",
 			'block_settings': "Die Einstellungen sind während eines Downloads gesperrt...",
 			'folder_error': "Der Ordner existiert nicht, bitte besuchen Sie die Einstellungen...",
+			'quality': "Qualität des Videos:",
+			'quality_not_available': "Qualität nicht verfügbar: ",
+			'download_cancel': "Download abgebrochen.",
 		}
 
 class Spanish():
@@ -293,7 +302,7 @@ class Spanish():
 			'shutdown':"Stop",
 			'help':"Ayuda",
 			'title_software':"● Descargador de YouTube y Spotify ●",
-			'disclaimer_software':"Los vídeos subidos no superarán los 720p.",
+			'disclaimer_software':" por ",
 			'download_youtube':"Descargar de YouTube",
 			'download_spotify':"Descargar desde Spotify",
 			'download_audio':"Descargar sólo el audio del vídeo",
@@ -336,6 +345,9 @@ class Spanish():
 			'bad_spotify_account': "Cuenta de Spotify no válida, por favor visite la configuración...",
 			'block_settings': "La configuración está bloqueada durante una descarga...",
 			'folder_error': "La carpeta no existe, por favor visite la configuración...",
+			'quality': "Calidad del vídeo:",
+			'quality_not_available': "Calidad no disponible: ",
+			'download_cancel': "Descarga cancelada.",
 		}
 
 
@@ -379,7 +391,7 @@ class Italiano():
 			'shutdown':"Stop",
 			'help':"Aiuto",
 			'title_software':"● Downloader di YouTube e Spotify ●",
-			'disclaimer_software':"I video caricati non supereranno i 720p.",
+			'disclaimer_software':" di ",
 			'download_youtube':"Scarica da YouTube",
 			'download_spotify':"Scarica da Spotify",
 			'download_audio':"Scarica solo l'audio del video",
@@ -422,6 +434,9 @@ class Italiano():
 			'bad_spotify_account': "Account Spotify non valido, visita le impostazioni...",
 			'block_settings': "Le impostazioni sono bloccate durante il download...",
 			'folder_error': "La cartella non esiste, visita le impostazioni...",
+			'quality': "Qualità del video:",
+			'quality_not_available': "Qualità non disponibile: ",
+			'download_cancel': "Download annullato.",
 		}
 
 
@@ -465,7 +480,7 @@ class Chinese():
 			'shutdown':"停止",
 			'help':"帮助",
 			'title_software':"● YouTube和Spotify下载器 ●",
-			'disclaimer_software':"上传的视频不会超过720p。",
+			'disclaimer_software':" 通过 ",
 			'download_youtube':"从YouTube下载",
 			'download_spotify':"从Spotify下载",
 			'download_audio':"仅下载视频的音频",
@@ -508,4 +523,7 @@ class Chinese():
 			'bad_spotify_account': "无效的Spotify帐户,请访问设置...",
 			'block_settings': "下载期间设置被锁定...",
 			'folder_error': "文件夹不存在,请访问设置...",
+			'quality': "视频质量:",
+			'quality_not_available': "质量不可用: ",
+			'download_cancel': "下载已取消。",
 		}
