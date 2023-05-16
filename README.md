@@ -58,16 +58,16 @@ You are now ready to use Mensible!
 ##### ⚠️ *Warning, download the releases and do not clone the repo. It is a working tool in perpetual improvement. You expose yourself to bugs and instability (Except if you want to hunt bugs).*
 
 ### Gallery
-| _`Home page` state at the opening, base on version 1.5.0_
+| _`Home page` state at the opening, base on version 1.5.3_
 ![](Documentation/home.png)
 
-| _`Download window` base on version 1.5.1_
+| _`Download window` base on version 1.5.3_
 ![](Documentation/download.png)
 
-| _`Settings window` base on version 1.5.0_
+| _`Settings window` base on version 1.5.3_
 ![](Documentation/settings.png)
 
-| _`Credits window` base on version 1.5.0_
+| _`Credits window` base on version 1.5.3_
 ![](Documentation/credits.png)
 
 
