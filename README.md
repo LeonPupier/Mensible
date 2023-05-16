@@ -76,9 +76,9 @@ since v1.5.0:
 - [x] Multi-language Support
 - [x] Work to revisit the interface to modernize the experience
 - [x] Make source code public !
+- [x] Total unblocking of the video quality
 
 coming soon:
-- [ ] Total unblocking of the video quality
 - [ ] Features under consideration...
 
 | see the full [changelog](https://github.com/LeonPupier/Mensible/blob/master/Content/changelog.txt) here.
