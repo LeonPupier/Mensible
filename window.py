@@ -82,7 +82,10 @@ class Window(customtkinter.CTk):
 
 		# Credit
 		self.label_title = customtkinter.CTkLabel(self, text=self.software.l.lang['title_software'], font=self.software.title_font)
-		self.label_disclaimer = customtkinter.CTkLabel(self, text=self.software.l.lang['disclaimer_software'], font=self.software.main_font_italic)
+		self.label_disclaimer = customtkinter.CTkLabel(self,
+			text=self.software.title + self.software.l.lang['disclaimer_software'] + self.software.author + " - " + self.software.date,
+			font=self.software.main_font_italic
+		)
 		self.space_title = customtkinter.CTkLabel(self, text="")
 
 		# Frame for the download bar

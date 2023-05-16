@@ -1,5 +1,5 @@
 # Dependencies
-import os, customtkinter, shutil
+import os, customtkinter, shutil, moviepy.video.io.ffmpeg_tools, logging
 from urllib import request
 from PIL import Image
 from tkinter import X, W, StringVar
@@ -24,8 +24,8 @@ class Board:
 		# Check mode download selected
 		if self.download_type == 'playlist':
 			self.playlist_title = self.downloader.safe_title(self.downloader.title)
-			self.nb_video_downloaded = 0
 			self.nb_video_to_download = len(self.downloader.list_videos)
+			self.nb_video_downloaded = 0
 
 		# Informations of the video / playlist
 		self.title = self.downloader.title
@@ -113,15 +113,22 @@ class Board:
 			self.owner_label = customtkinter.CTkLabel(self.queue_line, text=self.owner[:65], font=self.software.main_font)
 			self.owner_label.grid(row=1, column=1, sticky=W)
 
+			# Author of the playlist
+			self.category_author_label = customtkinter.CTkLabel(self.queue_line, text=self.software.l.lang['author'], font=self.software.bold_font)
+			self.category_author_label.grid(row=2, column=0, sticky=W, padx=5)
+			self.author_label = customtkinter.CTkLabel(self.queue_line, text=self.author[:65], font=self.software.main_font)
+			self.author_label.grid(row=2, column=1, sticky=W)
+
 			# Length of the playlist
 			self.category_length_label = customtkinter.CTkLabel(self.queue_line, text=self.software.l.lang['length'], font=self.software.bold_font)
-			self.category_length_label.grid(row=2, column=0, sticky=W, padx=5)
+			self.category_length_label.grid(row=3, column=0, sticky=W, padx=5)
 			self.length_label = customtkinter.CTkLabel(self.queue_line, text=f'{self.length} videos', font=self.software.main_font)
-			self.length_label.grid(row=2, column=1, sticky=W)
+			self.length_label.grid(row=3, column=1, sticky=W)
+
 
 		# Display the percentage of the download
 		self.percent = StringVar()
-		self.percent.set("0%")
+		self.percent.set(self.software.l.lang['loading_download'])
 		self.percent_label = customtkinter.CTkLabel(self.queue_line, textvariable=self.percent, font=self.software.bold_font)
 		self.percent_label.place(x=560, y=15)
 
@@ -197,12 +204,21 @@ class Board:
 		self.is_cancel = True
 		self.percent.set(self.software.l.lang['download_cancel'])
 
-		self.valid(self)
+		self.valid()
 
 		# Remove the file in the download folder
 		try:
-			if self.download_type == 'video':
-				os.remove(f'{self.software.path}/{self.file_name}')
+			if self.download_type == 'single':
+				try:
+					os.remove(f'{self.software.path}/{self.title}_.mp3')
+				except FileNotFoundError:
+					pass
+
+				try:
+					os.remove(f'{self.software.path}/{self.title}_.mp4')
+				except FileNotFoundError:
+					pass
+
 			else:
 				shutil.rmtree(f'{self.software.path}/{self.playlist_title}')
 
@@ -210,32 +226,141 @@ class Board:
 			pass
 
 
-	def download_video(self, yt):
-		# Choice the stream to download
-		if self.mode_download == 'audio':
-			stream = yt.streams.otf(False).get_audio_only()
-		else:
-			stream = yt.streams.otf(False).get_highest_resolution()
+	def download_music(self, yt, video=False):
+		# Informations
+		title = yt.title
 
-		# File size of the video
+		# Select the best audio stream to download
+		stream = yt.streams.otf(False).get_audio_only()
+
+		# File size of the music
 		filesize = stream.filesize
 
 		# File name of the video
-		if self.mode_download == 'audio':
-			self.file_name = f'{yt.title}.mp3'
+		if self.download_type == 'single':
+			file_name = self.software.path + title
 		else:
-			self.file_name = f'{yt.title}.mp4'
-		
-		if self.download_type == 'playlist':
-			self.file_name = f'{self.playlist_title}/{self.file_name}'
-		
-		# Create the playlist folder if it does not exist
-		if self.download_type == 'playlist':
-			if not os.path.exists(f'{self.software.path}/{self.playlist_title}'):
-				os.makedirs(f'{self.software.path}/{self.playlist_title}')
+			file_name = self.software.path + self.playlist_title + '/' + title
 
+		# Download the music
+		try:
+			self.download_stream(stream, filesize, file_name + '_.mp3')
+		except Exception as e:
+			logging.error(f"Error in download_video: {e}")
+
+		# Rename the audio file to mp3 if the original download is not a video
+		if video == False:
+			try:
+				os.rename(
+					file_name + '_.mp3',
+					file_name + '.mp3'
+				)
+			except:
+				pass
+
+		# Display the end of the download if there is no more video to download
+		if self.download_type == 'single':
+			self.percent.set("100% ✅")
+			self.btn_cancel.configure(image=self.software.image_finish, command=self.valid)
+			self.btn_pause_resume.place_forget()
+			self.window.balloon.bind(self.btn_cancel, self.software.l.lang['btn_valid'])
+
+
+	def download_video(self, yt):
+		# Informations
+		title = yt.title
+
+		# Select the best video stream to download
+		stream = yt.streams.filter(res=self.software.quality, adaptive=True, video_codec="vp9").desc().first()
+
+		# If the quality selected is not available get the best quality available
+		if stream is None:
+			self.is_cancel = True
+			self.window.status.set(f"{self.software.l.lang['quality_not_available']} {self.software.quality}")
+			self.percent.set(self.software.l.lang['download_cancel'])
+			self.btn_pause_resume.place_forget()
+			return
+
+		# File size of the video
+		filesize = stream.filesize
+		
+		# File name of the video
+		if self.download_type == 'single':
+			file_name = self.software.path + title
+		else:
+			file_name = self.software.path + self.playlist_title + '/' + title
+
+		# Download the video
+		try:
+			self.download_stream(stream, filesize, file_name + '_.mp4')
+		except Exception as e:
+			logging.error(f"Error in download_video: {e}")
+		
+		# Download the music of the video
+		if self.is_cancel == False:
+			self.download_music(yt, video=True)
+
+			# Link the audio and the video
+			moviepy.video.io.ffmpeg_tools.ffmpeg_merge_video_audio(
+				file_name + "_.mp4",
+				file_name + '_.mp3',
+				file_name + '.mp4',
+				vcodec='copy', acodec='copy', logger=None
+			)
+		
+			# Remove the old audio temporary files
+			try:
+				os.remove(file_name + '_.mp3')
+			except FileNotFoundError:
+				pass
+
+			# Remove the old video temporary files
+			try:
+				os.remove(file_name + '_.mp4')
+			except FileNotFoundError:
+				pass
+		
+		else:
+			# Rename the video file _mp4 to mp4
+			try:
+				os.rename(
+					file_name + '_.mp4',
+					file_name + '.mp4'
+				)
+			except:
+				pass
+
+			# Display the end of the download if there is no more video to download
+			if self.download_type == 'single':
+				self.percent.set("100% ✅")
+				self.btn_cancel.configure(image=self.software.image_finish, command=self.valid)
+				self.btn_pause_resume.place_forget()
+				self.window.balloon.bind(self.btn_cancel, self.software.l.lang['btn_valid'])
+
+	
+	def download_playlist(self, list_yt_objects):
+		# Create the playlist folder if it does not exist
+		if not os.path.exists(f'{self.software.path}/{self.playlist_title}'):
+			os.makedirs(f'{self.software.path}/{self.playlist_title}')
+
+		# Download each music/video of the playlist
+		for yt in list_yt_objects:
+			if self.mode_download == 'audio':
+				self.download_music(yt)
+			else:
+				self.download_video(yt)
+		
+		# Valid the download
+		if self.is_cancel == False:
+			self.percent.set("100% ✅")
+			self.btn_cancel.configure(image=self.software.image_finish, command=self.valid)
+			self.window.balloon.bind(self.btn_cancel, self.software.l.lang['btn_valid'])
+		self.btn_pause_resume.place_forget()
+
+
+	def download_stream(self, stream, filesize, file):
 		# Load and prepare the file
-		with open(f"{self.software.path}/{self.file_name}", 'wb') as file:
+		with open(file, 'wb') as file:
 
 			# Download the video
 			stream = request.stream(stream.url)
@@ -244,7 +369,7 @@ class Board:
 			while True:
 				# The video / playlist is canceled
 				if self.is_cancel:
-					break
+					return (0)
 
 				# The video / playlist is paused
 				if self.is_pause:
@@ -260,29 +385,22 @@ class Board:
 					# Update the percent of the download
 					percent_value = downloaded * 100 / filesize
 
-					# Display the new percent of the download
-					if self.download_type == 'single':
-						self.progress.set(percent_value / 100)
-						self.percent.set(f"{int(percent_value)}%  {(downloaded / 1000000):.2f}Mb/{(filesize / 1000000):.2f}Mb")
+					# Check if there if one more music/video downloaded of the playlist
+					if self.download_type == 'playlist' and percent_value == 100:
+							if self.mode_download == 'audio':
+								self.nb_video_downloaded += 1
+							else:
+								self.nb_video_downloaded += 0.5
 
-					else:
-						# One more music/video downloaded
-						if percent_value == 100:
-							self.nb_video_downloaded += 1
-							percent_track_downloaded = self.nb_video_downloaded * 100 / self.nb_video_to_download
-							self.progress.set(percent_track_downloaded / 100)
-							self.percent.set(f"{int(percent_track_downloaded)}%  ({self.nb_video_downloaded}/{self.nb_video_to_download})  {(downloaded / 1000000):.2f}Mb/{(filesize / 1000000):.2f}Mb")
+					# Prepare the text to display
+					text = f"{int(percent_value)}%  {(downloaded / 1000000):.2f}Mb/{(filesize / 1000000):.2f}Mb"
+					if self.download_type == 'playlist':
+						text += f"  ({self.nb_video_downloaded}/{self.nb_video_to_download})"
 
-				# End of the download
+					# Display the status of the download
+					self.progress.set(percent_value / 100)
+					self.percent.set(text)
+		
 				else:
-					if self.download_type == 'single':
-						self.btn_cancel.configure(image=self.software.image_finish, command=self.valid)
-						self.btn_pause_resume.place_forget()
-						self.window.balloon.bind(self.btn_cancel, self.software.l.lang['btn_valid'])
-
-					else:
-						if self.nb_video_downloaded == self.nb_video_to_download:
-							self.btn_cancel.configure(image=self.software.image_finish, command=self.valid)
-							self.btn_pause_resume.place_forget()
-							self.window.balloon.bind(self.btn_cancel, self.software.l.lang['btn_valid'])
-					break
+					# The download is finished
+					return (1)

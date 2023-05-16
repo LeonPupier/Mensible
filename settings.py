@@ -74,6 +74,15 @@ class Settings:
 
 		self.opt_chunk_size = customtkinter.CTkOptionMenu(self.win_download, variable=self.opt_chunk_size_choice, values=self.opt_chunk_size_str, width=100, cursor='hand2')
 
+		# Download quality
+		self.quality_label = customtkinter.CTkLabel(self.win_download, text=self.software.l.lang['quality'], font=self.software.main_font, width=self.space, anchor=W)
+
+		self.opt_quality_str = ['4320p', '2160p', '1440p', '1080p', '720p', '480p', '360p', '240p', '144p']
+		self.opt_quality_choice = StringVar(self.window.c2)
+		self.opt_quality_choice.set(self.software.quality)
+
+		self.opt_quality = customtkinter.CTkOptionMenu(self.win_download, variable=self.opt_quality_choice, values=self.opt_quality_str, width=100, cursor='hand2')
+
 		# Frame for Spotify settings
 		self.spotify_label = customtkinter.CTkLabel(self.window, text="• Spotify (API)", font=self.software.bold_font)
 		self.spotify_frame = customtkinter.CTkFrame(self.window)
@@ -132,7 +141,7 @@ class Settings:
 		self.interface_label.pack(side=TOP, anchor=W, padx=5)
 		self.win_interface.pack(side=TOP, anchor=W, fill=X, padx=5)
 
-		self.language_label.grid(row=0, column=0, sticky=W, padx=5)
+		self.language_label.grid(row=0, column=0, sticky=W, padx=5, pady=2)
 		self.opt_language.grid(row=0, column=1, sticky=W)
 		self.label_restart.grid(row=0, column=2, sticky=W, padx=50)
 
@@ -152,8 +161,11 @@ class Settings:
 
 		self.window.update_loading_status("place the Spotify section (5/8)")
 
-		self.chunk_size_label.grid(row=2, column=0, sticky=W, padx=5)
+		self.chunk_size_label.grid(row=2, column=0, sticky=W, padx=5, pady=2)
 		self.opt_chunk_size.grid(row=2, column=1, sticky=W)
+
+		self.quality_label.grid(row=3, column=0, sticky=W, padx=5, pady=2)
+		self.opt_quality.grid(row=3, column=1, sticky=W)
 
 		# Spotify section
 		self.spotify_label.pack(side=TOP, anchor=W, padx=5)
@@ -206,6 +218,10 @@ class Settings:
 		self.win_download.pack_forget()
 		self.info_download_label.grid_forget()
 		self.label_path.grid_forget()
+		self.chunk_size_label.grid_forget()
+		self.opt_chunk_size.grid_forget()
+		self.quality_label.grid_forget()
+		self.opt_quality.grid_forget()
 		self.spotify_label.pack_forget()
 		self.spotify_frame.pack_forget()
 		self.spotify_client_label.grid_forget()
@@ -263,12 +279,16 @@ class Settings:
 		self.software.chunk_size = self.opt_chunk_size_choice.get()
 		self.software.chunk_size_int = int(self.software.chunk_size.split(' ')[0]) * 1000000
 		pytube.request.default_range_size = self.software.chunk_size_int
+
+		# Change the quality
+		self.software.quality = self.opt_quality_choice.get()
 	
 		# Save the new settings
 		config_modif['CONFIG'] = {
 			'language': self.new_language,
 			'download.path': self.software.path,
 			'download.chunk_size': self.software.chunk_size,
+			'download.quality': self.software.quality,
 			'theme': self.software.theme,
 			'spotify.client': self.software.spotify_client,
 			'spotify.password': self.software.spotify_password
