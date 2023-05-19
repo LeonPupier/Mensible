@@ -39,6 +39,9 @@ Linux, Windows
 Internet access required and administrator rights are optional
 
 ### Installation
+
+##### ℹ️ *The software currently works with Python version 3.11.x*
+
 **1.** To install Mensible on your computer, you need to download the latest [release](https://github.com/LeonPupier/Mensible/releases/latest).
 
 **2.** Before you can launch the software, you must install its dependencies.
