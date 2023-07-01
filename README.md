@@ -9,7 +9,6 @@
   <a href="https://www.leonpupier.fr/projects/mensible"><strong>See on the website »</strong></a>
   
   [![Release](https://img.shields.io/github/release/LeonPupier/Mensible.svg)](https://github.com/LeonPupier/Mensible/releases)
-  [![Downloads](https://img.shields.io/github/downloads/LeonPupier/Mensible/total.svg)](https://github.com/LeonPupier/Mensible/releases)
   [![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FLeonPupier%2FMensible.json%3Fcolor%3Dgreen)](http://hits.dwyl.com/LeonPupier/Mensible)
   ![](https://sloc.xyz/github/LeonPupier/Mensible)
   [![License](https://img.shields.io/github/license/LeonPupier/Mensible.svg)](https://github.com/LeonPupier/Mensible/)
