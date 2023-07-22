@@ -33,7 +33,7 @@ class Settings:
 		# Language
 		self.language_label = customtkinter.CTkLabel(self.win_interface, text=self.software.l.lang['language'], font=self.software.main_font, width=self.space, anchor=W)
 
-		self.opt_language_str = ['English', 'Francais', 'Deutsch', 'Español', 'Italiano', '中国人']
+		self.opt_language_str = ['English', 'Francais', 'Deutsch', 'Español', 'Italiano', 'Czech', '中国人']
 		self.opt_language_choice = StringVar(self.window.c2)
 		self.opt_language_choice.set(self.software.language)
 

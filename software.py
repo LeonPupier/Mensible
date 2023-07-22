@@ -70,6 +70,8 @@ class SoftwareInformations:
 			self.l = Spanish()
 		elif self.language == 'Italiano':
 			self.l = Italiano()
+		elif self.language == 'Czech':
+			self.l = Czech()
 		elif self.language == '中国人':
 			self.l = Chinese()
 		else:
