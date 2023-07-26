@@ -3,6 +3,9 @@ CHANGELOG MENSIBLE - Léon Pupier - 2022 / 2023
 [⚠️ KNOWN ISSUES]
 - No problems are known yet.
 
+v1.5.4 [MINOR]
+- Addition of the Czech language to the software
+
 v1.5.3 [MINOR]
 - You can now choose the quality of downloaded videos, no more limit to 720p!
 - Added slider for video quality in settings

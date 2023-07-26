@@ -11,7 +11,7 @@ class SoftwareInformations:
 	def __init__(self):
 		# Informations
 		self.title = "Mensible"
-		self.version = "1.5.3"
+		self.version = "1.5.4"
 		self.author = "Léon Pupier"
 		self.website = "https://leonpupier.fr"
 		self.date = "2022 / 2023"
