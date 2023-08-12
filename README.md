@@ -17,9 +17,6 @@
 
 ---
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://github.com/LeonPupier/Mensible/)
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://github.com/LeonPupier/Mensible/)
-
 ### Description
 Mensible is a completely free software financed only by donations from generous
 users in order to offer you the possibility to download videos and music hosted
