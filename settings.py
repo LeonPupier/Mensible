@@ -173,12 +173,18 @@ class Settings:
 
 		self.spotify_client_label.grid(row=1, column=0, sticky=W, padx=5)
 		self.spotify_client_entry.delete(0, END)
-		self.spotify_client_entry.insert(END, self.software.spotify_client_id)
+		if self.software.spotify_client_id is not None:
+			self.spotify_client_entry.insert(END, self.software.spotify_client_id)
+		else:
+			self.spotify_client_entry.insert(END, '')
 		self.spotify_client_entry.grid(row=1, column=1, sticky=W)
 
 		self.spotify_password_label.grid(row=2, column=0, sticky=W, padx=5)
 		self.spotify_password_entry.delete(0, END)
-		self.spotify_password_entry.insert(END, self.software.spotify_password)
+		if self.software.spotify_password is not None:
+			self.spotify_password_entry.insert(END, self.software.spotify_password)
+		else:
+			self.spotify_password_entry.insert(END, '')
 		self.spotify_password_entry.grid(row=2, column=1, sticky=W)
 		self.show_password_button.grid(row=2, column=2, padx=5)
 

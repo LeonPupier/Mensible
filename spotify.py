@@ -7,9 +7,15 @@ from urllib.parse import quote
 from spotipy.oauth2 import SpotifyClientCredentials
 
 class SpotifyClass:
-	def __init__(self, software):
+	def __init__(self, window):
 		# Save properties
-		self.software = software
+		self.window = window
+		self.software = self.window.software
+		self.api_binding = False
+
+		# Credentials check-in
+		if self.software.spotify_client_id is None or self.software.spotify_password is None:
+			return None
 
 		# Spotify API credentials (user key)
 		self.__CLIENT_ID = self.software.spotify_client_id
@@ -28,8 +34,12 @@ class SpotifyClass:
 			# Bad client ID or password
 			return None
 	
+		# API binding validation
+		self.api_binding = True
+	
 
 	def download_tracks(self, pl_url, path):
+
 		# Get playlist details
 		pl_details = self.get_playlist_details(pl_url)
 		if pl_details is None:
@@ -39,8 +49,13 @@ class SpotifyClass:
 
 		# Get video URL for each track in the playlist (Spotify to YouTube URL)
 		list_url = []
+		count_track = 0
 		for track in tracks:
-			print(track['uri'])
+			count_track += 1
+
+			# Addition of a preprocessing status for Spotify music in a playlist
+			self.window.status.set(f'''{self.software.l.lang['spotify_preprocessing']} "{track['track_name']}" ({count_track}/{len(tracks)})''')
+
 			html = rq.urlopen(f"https://www.youtube.com/results?search_query={track['uri']}")
 			video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
 
@@ -66,7 +81,7 @@ class SpotifyClass:
 				fields=fields,
 				additional_types=["track"],
 			)["items"]
-		except:
+		except Exception as e:
 			# Bad client ID or password
 			return None
 
@@ -91,8 +106,7 @@ class SpotifyClass:
 								item["track"]["album"]["name"]
 							),
 							"album_date": item["track"]["album"]["release_date"],
-							"track_number": item["track"]["track_number"],
-							"album_art": item["track"]["album"]["images"][0]["url"],
+							"track_number": item["track"]["track_number"]
 						}
 					)
 

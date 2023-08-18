@@ -11,7 +11,7 @@ class SoftwareInformations:
 	def __init__(self):
 		# Informations
 		self.title = "Mensible"
-		self.version = "1.5.4"
+		self.version = "1.5.5"
 		self.author = "Léon Pupier"
 		self.website = "https://leonpupier.fr"
 		self.date = "2022 / 2023"
@@ -56,6 +56,12 @@ class SoftwareInformations:
 		self.theme = int(config['CONFIG']['theme'])
 		self.spotify_client_id = config['CONFIG']['spotify.client']
 		self.spotify_password = config['CONFIG']['spotify.password']
+
+		# Spotify credentials check-in
+		if self.spotify_client_id == '':
+			self.spotify_client_id = None
+		if self.spotify_password == '':
+			self.spotify_password = None
 
 		# Chunk size support
 		self.chunk_size_int = int(self.chunk_size.split(' ')[0]) * 1000000

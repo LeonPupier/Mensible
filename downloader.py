@@ -63,7 +63,10 @@ class Downloader:
 		if self.download_type == 'single':
 			self.window.txt_url.insert(0, 'https://www.youtube.com/watch?v=')
 		else:
-			self.window.txt_url.insert(0, 'https://www.youtube.com/playlist?list=')
+			if self.software.mode_plateform == 'youtube':
+				self.window.txt_url.insert(0, 'https://www.youtube.com/playlist?list=')
+			elif self.software.mode_plateform == 'spotify':
+				self.window.txt_url.insert(0, 'https://open.spotify.com/playlist/')
 		
 		# Reset cursor to default
 		self.window.config(cursor='')
@@ -125,11 +128,20 @@ class Downloader:
 			if self.mode_plateform == 'youtube':
 				self.playlist = Playlist(self.url)
 			else:
-				self.spotify = SpotifyClass(self.software)
+				self.spotify = SpotifyClass(self.window)
+
+				# Bad Spotify API credentials
+				if self.spotify.api_binding is False:
+					self.window.config(cursor='')
+					self.window.queue_label.configure(text="")
+					self.window.status.set(self.software.l.lang['spotify_api_error'])
+					return
+
 				self.playlist = self.spotify.download_tracks(self.url, self.software.path)
 				if self.playlist is None:
 					self.window.config(cursor='')
-					self.window.status.set(self.software.l.lang['valid_url'])
+					self.window.queue_label.configure(text="")
+					self.window.status.set(self.software.l.lang['spotify_api_error'])
 					return
 
 			# Download informations of the playlist
@@ -139,6 +151,7 @@ class Downloader:
 			except Exception as e:
 				# Display error and reset cursor
 				self.window.config(cursor='')
+				self.window.queue_label.configure(text="")
 				self.window.status.set(self.software.l.lang['valid_url'])
 				logging.debug(f'Error download infos Playlist: {e}')
 				return
