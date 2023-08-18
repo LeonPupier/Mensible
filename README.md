@@ -59,6 +59,18 @@ You are now ready to use Mensible!
 > **Warning**:
 > *Download the releases and do not clone the repo. It is a working tool in perpetual improvement. You expose yourself to bugs and instability (Except if you want to hunt bugs).*
 
+### How does Spotify support work?
+
+Spotify protects its music with DRM (Digital Rights Management), which means that no one can download the raw audio stream.
+To do this, Mensible retrieves the music informations and searches in YouTube for the most exact match.
+Once it finds it, it downloads it in audio format.
+
+It can happen that some downloaded music is not the right one.
+This may be due to the fact that the music is not referenced on YouTube or that other similar music (a remix for example) is better referenced.
+
+> **Note**:
+> API keys from your Spotify account are required to download music or podcasts.
+
 ### Gallery
 | _`Home page` state at the opening, base on version 1.5.3_
 ![](Documentation/home.png)
