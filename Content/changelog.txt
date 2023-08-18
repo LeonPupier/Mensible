@@ -3,6 +3,13 @@ CHANGELOG MENSIBLE - Léon Pupier - 2022 / 2023
 [⚠️ KNOWN ISSUES]
 - No problems are known yet.
 
+v1.5.5 [MINOR]
+- Addition of a preprocessing status for Spotify music in a playlist
+- Added an error when Spotify API credentials are not defined
+- [Fixing] Problem downloading some Spotify playlists (see issue #19)
+- [Fixing] Wrong URL replacement with Spotify playlists in software entry
+- [Fixing] Fixed inexplicit error messages
+
 v1.5.4 [MINOR]
 - Addition of the Czech language to the software
 

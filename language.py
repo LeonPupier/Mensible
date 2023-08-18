@@ -84,6 +84,8 @@ class English():
 			'quality': "Quality of the video:",
 			'quality_not_available': "Quality not available: ",
 			'download_cancel': "Download canceled.",
+			'spotify_api_error': "Spotify API credentials are not set or invalid...",
+			'spotify_preprocessing': "Spotify preprocessing of the track",
 		}
 
 class Francais():
@@ -172,6 +174,8 @@ class Francais():
 			'quality': "Qualité de la vidéo:",
 			'quality_not_available': "Qualité non disponible: ",
 			'download_cancel': "Téléchargement annulé.",
+			'spotify_api_error': "Les identifiants de l'API Spotify ne sont pas définis ou invalides...",
+			'spotify_preprocessing': "Prétraitement Spotify de la piste",
 		}
 
 class Deutsch():
@@ -260,6 +264,8 @@ class Deutsch():
 			'quality': "Qualität des Videos:",
 			'quality_not_available': "Qualität nicht verfügbar: ",
 			'download_cancel': "Download abgebrochen.",
+			'spotify_api_error': "Spotify API-Zugangsdaten sind nicht gesetzt oder ungültig...",
+			'spotify_preprocessing': "Spotify-Vorverarbeitung des Titels",
 		}
 
 class Spanish():
@@ -348,6 +354,8 @@ class Spanish():
 			'quality': "Calidad del vídeo:",
 			'quality_not_available': "Calidad no disponible: ",
 			'download_cancel': "Descarga cancelada.",
+			'spotify_api_error': "Las credenciales de la API de Spotify no están configuradas o son inválidas...",
+			'spotify_preprocessing': "Preprocesamiento de Spotify de la pista",
 		}
 
 
@@ -437,6 +445,8 @@ class Italiano():
 			'quality': "Qualità del video:",
 			'quality_not_available': "Qualità non disponibile: ",
 			'download_cancel': "Download annullato.",
+			'spotify_api_error': "Le credenziali dell'API Spotify non sono impostate o non sono valide...",
+			'spotify_preprocessing': "Preelaborazione Spotify della traccia",
 		}
 
 
@@ -526,6 +536,8 @@ class Chinese():
 			'quality': "视频质量:",
 			'quality_not_available': "质量不可用: ",
 			'download_cancel': "下载已取消。",
+			'spotify_api_error': "Spotify API凭据未设置或无效...",
+			'spotify_preprocessing': "Spotify预处理音轨",
 		}
 
 
@@ -615,4 +627,6 @@ class Czech():
 			'quality' : "Kvalita videa:",
 			'quality_not_available' : "Kvalita není k dispozici: ",
 			'download_cancel' : "Stahování zrušeno.",
+			'spotify_api_error' : "Přístupové údaje k Spotify API nejsou nastaveny nebo jsou neplatné...",
+			'spotify_preprocessing' : "Předzpracování Spotify skladby",
 		}
