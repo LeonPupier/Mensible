@@ -28,7 +28,7 @@ the same time, convenient no? You can also customize the application via the set
 ### Requirements
 In order to use the software on your computer, it must meet several requirements:
 - **Operating system:**
-Linux, Windows
+Linux, Windows *(In progress...)*
 - **Processor architecture:**
 64 bits recommended
 - **Informations:**
