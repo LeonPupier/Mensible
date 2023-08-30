@@ -48,7 +48,7 @@ Nothing could be simpler, just run this command at the root of the folder:
 > *Please note that depending on the configuration, the "python3" command may be replaced by "python" or even "py".*
 
 ```
-python3 -m pip -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 **3.** You can now run the main file of the program with Python:
 ```
