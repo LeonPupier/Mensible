@@ -84,23 +84,13 @@ This may be due to the fact that the music is not referenced on YouTube or that 
 | _`Credits window` base on version 1.5.3_
 ![](Documentation/credits.png)
 
-
-### Roadmap
-since v1.5.0:
-- [x] Multi-language Support
-- [x] Work to revisit the interface to modernize the experience
-- [x] Make source code public !
-- [x] Total unblocking of the video quality
-
-coming soon:
-- [ ] Features under consideration...
-
-| see the full [changelog](https://github.com/LeonPupier/Mensible/blob/master/Content/changelog.txt) here.
-
 ### License
 The software license is accessible from the file ```LICENSE```.
 
 Some of the icons used were downloaded from [Flaticon](https://www.flaticon.com/).
+
+> [!NOTE]
+> *You can see the full [changelog](https://github.com/LeonPupier/Mensible/blob/master/Content/changelog.txt) here.*
 
 ### How to support me ?
 If you want to help me financially to support my projects and my little student life,
