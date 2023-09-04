@@ -36,7 +36,7 @@ Internet access required and administrator rights are optional
 
 ### Installation
 
-> **Note**:
+> [!IMPORTANT]
 > *The software currently works with Python version 3.11.x*
 
 **1.** To install Mensible on your computer, you need to download the latest [release](https://github.com/LeonPupier/Mensible/releases/latest).
@@ -44,7 +44,7 @@ Internet access required and administrator rights are optional
 **2.** Before you can launch the software, you must install its dependencies.
 Nothing could be simpler, just run this command at the root of the folder:
 
-> **Note**:
+> [!NOTE]
 > *Please note that depending on the configuration, the "python3" command may be replaced by "python" or even "py".*
 
 ```
@@ -56,7 +56,7 @@ python3 main.py
 ```
 You are now ready to use Mensible!
 
-> **Warning**:
+> [!WARNING]
 > *Download the releases and do not clone the repo. It is a working tool in perpetual improvement. You expose yourself to bugs and instability (Except if you want to hunt bugs).*
 
 ### How does Spotify support work?
@@ -68,7 +68,7 @@ Once it finds it, it downloads it in audio format.
 It can happen that some downloaded music is not the right one.
 This may be due to the fact that the music is not referenced on YouTube or that other similar music (a remix for example) is better referenced.
 
-> **Note**:
+> [!IMPORTANT]
 > API keys from your Spotify account are required to download music or podcasts.
 
 ### Gallery
