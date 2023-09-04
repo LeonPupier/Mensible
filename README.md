@@ -69,7 +69,7 @@ It can happen that some downloaded music is not the right one.
 This may be due to the fact that the music is not referenced on YouTube or that other similar music (a remix for example) is better referenced.
 
 > [!IMPORTANT]
-> API keys from your Spotify account are required to download music or podcasts.
+> *API keys from your Spotify account are required to download music or podcasts.*
 
 ### Gallery
 | _`Home page` state at the opening, base on version 1.5.3_
